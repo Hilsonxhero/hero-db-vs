@@ -63,7 +63,7 @@ a, a:active, a:focus, a:visited {
     transition: all 200ms ease;
     right: 0;
     bottom: 0;
-    z-index: 212;
+    z-index: 999 !important;
     top: -1px;
     border-top: 1px solid #e2e2e2;
 
