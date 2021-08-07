@@ -1,0 +1,2314 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!--begin::Theme Color-->
+    <meta name="theme-color" content="#27293d">
+    <!--end::Theme Color-->
+
+    <!--begin::Favicons-->
+
+    <link rel="apple-touch-icon" href="assets/images/favicons/apple-touch-icon.png" sizes="180x180">
+    <link rel="icon" href="assets/images/favicons/sw.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="assets/images/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+    <link rel="mask-icon" href="assets/images/favicons/safari-pinned-tab.svg" color="#7952b3">
+    <link rel="icon" href="assets/images/favicons/favicon.ico">
+
+    <!--end::Favicons-->
+
+    <!--begin::Style-->
+
+    <link rel="stylesheet" href="assets/css/app.min.css">
+    <link rel="stylesheet" href="assets/vendor/c3/c3.min.css">
+    <link rel="stylesheet" href="assets/vendor/select-ui/select-ui.min.css">
+    <link rel="stylesheet" href="assets/css/animate.min.css">
+    <link rel="stylesheet" href="assets/vendor/sweetalert/sweetalert2.min.css">
+
+    <!--begin::Custom Style-->
+    <link rel="stylesheet" href="assets/css/custom.css">
+    <!--end::Custom Style-->
+
+    <!--end::Style-->
+
+    <!--begin:: Font && Icons-->
+    <link rel="stylesheet" href="assets/fonts/remixicon/remixicon.css">
+    <!--end:: Font && Icons-->
+
+    <title>پنل مدیریت</title>
+
+</head>
+<body>
+
+
+<!--begin::Sidebar-->
+<div class="sidebar__nav">
+    <span class="bars d-none px-4"></span>
+    <div class="navbar-brand d-flex justify-content-center">
+        <a class=" d-inline-block my-2" href="">
+            <img class="img-fluid" src="assets/images/logo.png" alt="">
+        </a>
+    </div>
+    <ul>
+        <li class="item-li i-dashboard"><a href="index.html">پیشخوان</a></li>
+
+        <li class="item-li i-courses has-sub-ui"><a class="has-arrow-ui" href="#">دوره ها</a>
+            <ul class="collapse show">
+                <li><a href="create-new-course.html">ایجاد محصول</a></li>
+                <li><a href="courses.html">لیست محصول</a></li>
+            </ul>
+        </li>
+
+        <li class="item-li i-users has-sub-ui"><a class="has-arrow-ui" href="#"> کاربران</a>
+            <ul class="collapse show">
+                <li><a href="">لیست کاربران</a></li>
+            </ul>
+        </li>
+        <li class="item-li i-user-permissions has-sub-ui"><a class="has-arrow-ui" href="#"> مدیریت کاربران</a>
+            <ul class="collapse show">
+                <li class="i-roles"><a href="">نقش های کاربری</a></li>
+                <li class="i-permissions"><a href="">مجوز ها</a></li>
+            </ul>
+        </li>
+        <li class="item-li i-categories"><a href="categories.html">دسته بندی ها</a></li>
+        <li class="item-li i-slideshow"><a href="slideshow.html">اسلایدشو</a></li>
+        <li class="item-li i-banners"><a href="banners.html">بنر ها</a></li>
+        <li class="item-li i-articles"><a href="articles.html">مقالات</a></li>
+        <li class="item-li i-ads"><a href="ads.html">تبلیغات</a></li>
+        <li class="item-li i-comments"><a href="comments.html"> نظرات</a></li>
+        <li class="item-li i-tickets"><a href="tickets.html"> تیکت ها</a></li>
+        <li class="item-li i-discounts"><a href="discounts.html">تخفیف ها</a></li>
+        <li class="item-li i-transactions"><a href="transactions.html">تراکنش ها</a></li>
+        <li class="item-li i-checkouts"><a href="checkouts.html">تسویه حساب ها</a></li>
+        <li class="item-li i-notification__management"><a href="notification-management.html">مدیریت اطلاع رسانی</a>
+        </li>
+
+        <li class="item-li i-web-apps has-sub-ui"><a class="has-arrow-ui" href="#"> وب اپلیکشن ها</a>
+            <ul class="collapse show">
+                <li class="i-email"><a href="email-box.html"> ایمیل</a></li>
+                <li class="i-messenger"><a href="">پیامرسان</a></li>
+            </ul>
+        </li>
+
+
+        <li class="item-li i-setting"><a href="notification-management.html">تنظیمات</a>
+        </li>
+        <li class="item-li i-user__inforamtion"><a href="profile.html">اطلاعات کاربری</a></li>
+
+    </ul>
+</div>
+<!--end::Sidebar-->
+
+<div class="content">
+    <!--begin::Header-->
+    <div class="header-ui d-flex item-center w-100">
+        <div class="header__right d-flex flex-grow-1 align-items-center">
+            <span class="bars"></span>
+        </div>
+        <div class="header__left d-flex flex-end align-items-center">
+
+            <!--begin::Setting-->
+            <div class="setting-ui position-relative me-3" id="js-setting-ui">
+                <a class="setting__icon"></a>
+            </div>
+            <!--end::Setting-->
+
+            <!--begin::Notification-->
+            <div class="notification position-relative me-3">
+                <a class="notification__icon dropdown-toggle" data-bs-auto-close="outside"
+                   id="dropdownMenuOffset" data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="0,15"></a>
+                <!--                <span class="notification-dot">3</span>-->
+                <ul class="dropdown-menu dropdown-menu-start feeds_widget" aria-labelledby="dropdownMenuOffset">
+                    <li class="header blue">3 اعلان جدید</li>
+                    <li>
+                        <a href="javascript:void(0);">
+                            <div class="feeds-left bg-danger"><i class="ri-check-line"></i></div>
+                            <div class="feeds-body">
+                                <h4 class="title text-danger">کاربر جدید <small class="float-left text-muted">9:10
+                                    AM</small></h4>
+                                <small>من احساس خوبی دارم !</small>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">
+                            <div class="feeds-left bg-warning"><i class="ri-settings-4-line"></i></div>
+                            <div class="feeds-body">
+                                <h4 class="title text-warning">هشدار سرور <small class="float-left text-muted">9:17
+                                    AM</small></h4>
+                                <small>ارتباط شما شخصی نمی باشد</small>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">
+                            <div class="feeds-left bg-success"><i class="ri-thumb-up-line"></i></div>
+                            <div class="feeds-body">
+                                <h4 class="title text-success">2 فیدبک جدید <small class="float-left text-muted">9:22
+                                    AM</small></h4>
+                                <small>ممنون از سایت خوب و باحال شما !</small>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!--end::Notification-->
+
+            <!--begin::Profile-->
+            <div class="profile-content-ui position-relative mr-3">
+                <div class="profile-content__thumb  dropdown-toggle" data-bs-auto-close="outside"
+                     id="profile-content-ui"
+                     data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="0,15">
+                    <img class="img-fluid" src="assets/images/150-2.jpg" alt="">
+                </div>
+                <div class="dropdown-menu dropdown-menu-start feeds_widget" aria-labelledby="profile-content-ui">
+                    <div class="header blue d-flex align-items-center">
+
+                        <div class="symbol symbol-40px mx-2 py-5">
+                            <img alt="Logo" src="assets/images/150-2.jpg">
+                        </div>
+
+                        <div>
+                            <span class="text-white  fs-5">امیر</span>
+                            <a href="#" class="link-white fs-6 d-block opacity-75 opacity-100-hover">hilsonxhero@gmail.com</a>
+                        </div>
+
+                    </div>
+
+                    <div class="row row-cols-2 g-0">
+                        <!--begin::Col-->
+                        <a href=""
+                           class="border-bottom border-end text-center py-10 btn btn-text-dark btn-icon-gray-400 btn-active-color-primary rounded-0">
+
+                            <i class="ri-profile-line ri-2x"></i>
+
+                            <span class="fw-bolder fs-6 d-block pt-3">پروفایل من</span>
+                        </a>
+                        <!--end::Col-->
+                        <!--begin::Col-->
+                        <a href=""
+                           class="col border-bottom text-center py-10 btn btn-text-dark btn-icon-gray-400 btn-active-color-primary rounded-0">
+                            <!--begin::Svg Icon | path: icons/duotone/Interface/Settings-02.svg-->
+                            <i class="ri-settings-4-line ri-2x"></i>
+                            <!--end::Svg Icon-->
+                            <span class="fw-bolder fs-6 d-block pt-3">تنظیمات</span>
+                        </a>
+                        <!--end::Col-->
+                        <!--begin::Col-->
+                        <div class="col text-center border-end py-10 btn btn-text-dark btn-icon-gray-400 btn-active-color-primary rounded-0"
+                             data-kt-menu-trigger="hover" data-kt-menu-placement="left-start"
+                             data-kt-menu-flip="center, top">
+                            <!--begin::Svg Icon-->
+                            <i class="ri-apps-2-line ri-2x"></i>
+                            <!--end::Svg Icon-->
+                            <span class="fw-bolder fs-6 d-block pt-3">دوره ها</span>
+                        </div>
+                        <!--end::Col-->
+                        <!--begin::Col-->
+                        <a href=""
+                           class="col text-center py-10 btn btn-text-dark btn-icon-gray-400 btn-active-color-primary rounded-0">
+
+                            <i class="ri-logout-box-r-line ri-2x"></i>
+
+                            <span class="fw-bolder fs-6 d-block pt-3">خروج</span>
+                        </a>
+                        <!--end::Col-->
+                        <!--begin::balance account-->
+                        <span class="account-balance me-2 col w-100 d-flex justify-content-center align-items-center">  2,500,000 تومان</span>
+                        <!--begin::balance account-->
+                    </div>
+                </div>
+            </div>
+            <!--end::Profile-->
+
+        </div>
+    </div>
+    <!--end::Header-->
+
+    <!--begin::Theme Setting-->
+    <div class="theme-setting__nav">
+        <div class="card setting_switch">
+            <div class="header my-3 text-dark">تنظیمات</div>
+            <div class="list-group">
+                <div class="list-group-item text-dark">
+                    تم دارک
+                    <div class="float-left">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input lv-btn" type="checkbox" id="change-theme">
+                            <label class="form-check-label" for="change-theme"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="form-group">
+                <label class="d-block">ترافیک این ماه <span class="float-left">77%</span></label>
+                <div class="progress progress-xxs">
+                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="77" aria-valuemin="0" aria-valuemax="100" style="width: 77%;"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="d-block">حجم سرور <span class="float-left">50%</span></label>
+                <div class="progress progress-xxs">
+                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--end::Theme Setting-->
+
+    <!--begin::Main Content-->
+    <div class="main-content">
+        <div class="row">
+            <div class="col-12">
+                <div class="toolbar-ui">
+                    <h1 class="text-dark fs-5 fw-bold">پروفایل کاربری</h1>
+                    <ul class="breadcrumb-ui ps-0">
+                        <li><a href="index.html" title="پیشخوان">داشبورد</a></li>
+                        <li><a href="index.html" class="text-dark" title="پیشخوان">پروفایل</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="card pb-0">
+                    <div class="body">
+                        <div class="d-flex flex-wrap flex-sm-nowrap">
+                            <div class="me-3 mb-4">
+                                <div class="symbol symbol-100px symbol-lg-160px symbol-fixed position-relative">
+                                    <img src="assets/images/150-2.jpg" alt="">
+                                </div>
+                            </div>
+                            <div class="flex-grow-1">
+                                <div class="d-flex justify-content-between align-items-start flex-wrap mb-2">
+                                    <div class="d-flex flex-column">
+                                        <div class="d-flex align-items-center mb-2">
+                                            <a href=""
+                                               class="text-gray-700 text-hover-primary fs-4 fw-bold ms-2 me-2">امیر </a>
+                                            <a href="#">
+                                                <span class="svg-icon svg-icon-1 svg-icon-primary">
+																	<svg xmlns="http://www.w3.org/2000/svg" width="24px"
+                                                                         height="24px" viewBox="0 0 24 24">
+																		<path d="M10.0813 3.7242C10.8849 2.16438 13.1151 2.16438 13.9187 3.7242V3.7242C14.4016 4.66147 15.4909 5.1127 16.4951 4.79139V4.79139C18.1663 4.25668 19.7433 5.83365 19.2086 7.50485V7.50485C18.8873 8.50905 19.3385 9.59842 20.2758 10.0813V10.0813C21.8356 10.8849 21.8356 13.1151 20.2758 13.9187V13.9187C19.3385 14.4016 18.8873 15.491 19.2086 16.4951V16.4951C19.7433 18.1663 18.1663 19.7433 16.4951 19.2086V19.2086C15.491 18.8873 14.4016 19.3385 13.9187 20.2758V20.2758C13.1151 21.8356 10.8849 21.8356 10.0813 20.2758V20.2758C9.59842 19.3385 8.50905 18.8873 7.50485 19.2086V19.2086C5.83365 19.7433 4.25668 18.1663 4.79139 16.4951V16.4951C5.1127 15.491 4.66147 14.4016 3.7242 13.9187V13.9187C2.16438 13.1151 2.16438 10.8849 3.7242 10.0813V10.0813C4.66147 9.59842 5.1127 8.50905 4.79139 7.50485V7.50485C4.25668 5.83365 5.83365 4.25668 7.50485 4.79139V4.79139C8.50905 5.1127 9.59842 4.66147 10.0813 3.7242V3.7242Z"
+                                                                              fill="#00A3FF"></path>
+																		<path class="permanent"
+                                                                              d="M14.8563 9.1903C15.0606 8.94984 15.3771 8.9385 15.6175 9.14289C15.858 9.34728 15.8229 9.66433 15.6185 9.9048L11.863 14.6558C11.6554 14.9001 11.2876 14.9258 11.048 14.7128L8.47656 12.4271C8.24068 12.2174 8.21944 11.8563 8.42911 11.6204C8.63877 11.3845 8.99996 11.3633 9.23583 11.5729L11.3706 13.4705L14.8563 9.1903Z"
+                                                                              fill="white"></path>
+																	</svg>
+                                                </span>
+                                            </a>
+                                        </div>
+                                        <div class="d-flex flex-wrap fw-bold fs-6 mb-4 ps-2">
+                                            <a href=""
+                                               class="d-flex align-items-center text-gray-600 text-hover-primary me-3 mb-2 has-icon-ui user-icon-ui">
+                                                نویسنده
+                                            </a>
+                                            <a href=""
+                                               class="d-flex align-items-center text-gray-600 text-hover-primary me-3 mb-2 has-icon-ui location-icon-ui">
+                                                ایران تهران
+                                            </a>
+                                            <a href=""
+                                               class="d-flex align-items-center text-gray-600 text-hover-primary me-3 mb-2 has-icon-ui email-icon-ui">
+                                                hilsonxhero.me@gmail.com
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex my-2">
+                                        <button type="button" class="btn btn-primary-ui">تست</button>
+                                        <a href="" class="btn btn-light ms-3">تست</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="separator"></div>
+                        <div class="d-flex overflow-x-auto">
+                            <ul class="nav nav-stretch nav-line-tabs h-55px nav-line-tabs-2x border-transparent fs-6 flex-nowrap">
+                                <!--begin::Nav item-->
+                                <li class="nav-item">
+                                    <a class="nav-link text-active-primary me-6" href="profile.html">پروفایل</a>
+                                </li>
+                                <!--end::Nav item-->
+                                <!--begin::Nav item-->
+                                <li class="nav-item">
+                                    <a class="nav-link text-active-primary me-6" href="profile-courses.html">دوره ها</a>
+                                </li>
+                                <!--end::Nav item-->
+                                <!--begin::Nav item-->
+                                <li class="nav-item">
+                                    <a class="nav-link text-active-primary me-6 active" href="profile-activity.html">فعالیت
+                                        ها</a>
+                                </li>
+                                <!--end::Nav item-->
+                                <!--begin::Nav item-->
+                                <li class="nav-item">
+                                    <a class="nav-link text-active-primary me-6" href="profile-setting.html">تنظیمات حساب</a>
+                                </li>
+                                <!--end::Nav item-->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="card pb-0">
+                    <div class="header d-flex align-items-center justify-content-between">
+                        <h5>فعالیت های اخیر</h5>
+
+                        <div class="card-toolbar m-0">
+                            <!--begin::Tab nav-->
+                            <ul class="nav nav-tabs nav-line-tabs nav-stretch fs-6 border-0 fw-bolder" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <a id="kt_activity_today_tab"
+                                       class="nav-link justify-content-center text-active-gray-800 active"
+                                       data-bs-toggle="tab" role="tab" href="#kt_activity_today">امروز</a>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <a id="kt_activity_week_tab"
+                                       class="nav-link justify-content-center text-active-gray-800" data-bs-toggle="tab"
+                                       role="tab" href="#kt_activity_week">هفته</a>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <a id="kt_activity_month_tab"
+                                       class="nav-link justify-content-center text-active-gray-800" data-bs-toggle="tab"
+                                       role="tab" href="#kt_activity_month">ماه</a>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <a id="kt_activity_year_tab"
+                                       class="nav-link justify-content-center text-active-gray-800 text-hover-gray-800"
+                                       data-bs-toggle="tab" role="tab" href="#kt_activity_year">2021</a>
+                                </li>
+                            </ul>
+                            <!--end::Tab nav-->
+                        </div>
+                    </div>
+                    <div class="body">
+                        <div class="tab-content">
+                            <!--begin::Tab panel-->
+                            <div id="kt_activity_today" class="card-body p-0 tab-pane fade show active" role="tabpanel"
+                                 aria-labelledby="kt_activity_today_tab">
+                                <!--begin::Timeline-->
+                                <div class="timeline">
+                                    <!--begin::Timeline item-->
+                                    <div class="timeline-item">
+                                        <!--begin::Timeline line-->
+                                        <div class="timeline-line w-40px"></div>
+                                        <!--end::Timeline line-->
+                                        <!--begin::Timeline icon-->
+                                        <div class="timeline-icon symbol symbol-circle symbol-40px me-4">
+                                            <div class="symbol-label bg-light">
+                                                <!--begin::Svg Icon | path: icons/duotone/Communication/Chat2.svg-->
+                                                <span class="svg-icon svg-icon-2 svg-icon-gray-500">
+																	<svg xmlns="http://www.w3.org/2000/svg" width="24px"
+                                                                         height="24px" viewBox="0 0 24 24"
+                                                                         version="1.1">
+																		<polygon fill="#000000" opacity="0.3"
+                                                                                 points="5 15 3 21.5 9.5 19.5"></polygon>
+																		<path d="M13.5,21 C8.25329488,21 4,16.7467051 4,11.5 C4,6.25329488 8.25329488,2 13.5,2 C18.7467051,2 23,6.25329488 23,11.5 C23,16.7467051 18.7467051,21 13.5,21 Z M9,8 C8.44771525,8 8,8.44771525 8,9 C8,9.55228475 8.44771525,10 9,10 L18,10 C18.5522847,10 19,9.55228475 19,9 C19,8.44771525 18.5522847,8 18,8 L9,8 Z M9,12 C8.44771525,12 8,12.4477153 8,13 C8,13.5522847 8.44771525,14 9,14 L14,14 C14.5522847,14 15,13.5522847 15,13 C15,12.4477153 14.5522847,12 14,12 L9,12 Z"
+                                                                              fill="#000000"></path>
+																	</svg>
+																</span>
+                                                <!--end::Svg Icon-->
+                                            </div>
+                                        </div>
+                                        <!--end::Timeline icon-->
+                                        <!--begin::Timeline content-->
+                                        <div class="timeline-content mb-10 mt-n1">
+                                            <!--begin::Timeline heading-->
+                                            <div class="pe-3 mb-5">
+                                                <!--begin::Title-->
+                                                <div class="fs-6 mb-2">
+                                                    ثبت یک تیکت پشتیبانی
+                                                </div>
+                                                <!--end::Title-->
+                                                <!--begin::Description-->
+                                                <div class="d-flex align-items-center mt-1 fs-6">
+                                                    <!--begin::Info-->
+                                                    <div class="text-muted me-2 fs-7"> 4:23</div>
+                                                    <!--end::Info-->
+                                                    <!--begin::User-->
+                                                    <div class="symbol symbol-circle symbol-25px"
+                                                         data-bs-toggle="tooltip" data-bs-boundary="window"
+                                                         data-bs-placement="top" title=""
+                                                         data-bs-original-title="Nina Nilson">
+                                                        <img src="assets/images/150-2.jpg" alt="img">
+                                                    </div>
+                                                    <!--end::User-->
+                                                </div>
+                                                <!--end::Description-->
+                                            </div>
+                                            <!--end::Timeline heading-->
+                                            <!--begin::Timeline details-->
+                                            <div class="overflow-auto pb-5">
+                                                <!--begin::Record-->
+                                                <div class="d-flex align-items-center justify-content-between border border-dashed border-gray-300 rounded min-w-750px px-3 py-3 mb-5">
+                                                    <!--begin::Title-->
+                                                    <a href="#"
+                                                       class="fs-6 text-dark text-hover-primary min-w-200px">مشکل
+                                                        فنی در خرید دوره</a>
+                                                    <!--end::Title-->
+                                                    <!--begin::Label-->
+                                                    <div class="min-w-175px pe-2">
+                                                        <span class="badge badge-light text-muted">مشکل فنی</span>
+                                                    </div>
+                                                    <!--end::Label-->
+
+                                                    <!--begin::Progress-->
+                                                    <div class="min-w-125px pe-2">
+                                                        <span class="badge badge-light-primary">در حال انتظار</span>
+                                                    </div>
+                                                    <!--end::Progress-->
+                                                    <!--begin::Action-->
+                                                    <a href="#" class="btn btn-sm btn-light btn-active-light-primary">مشاهده</a>
+                                                    <!--end::Action-->
+                                                </div>
+                                                <!--end::Record-->
+                                            </div>
+                                            <!--end::Timeline details-->
+                                        </div>
+                                        <!--end::Timeline content-->
+                                    </div>
+                                    <!--end::Timeline item-->
+                                    <!--begin::Timeline item-->
+                                    <div class="timeline-item">
+                                        <!--begin::Timeline line-->
+                                        <div class="timeline-line w-40px"></div>
+                                        <!--end::Timeline line-->
+                                        <!--begin::Timeline icon-->
+                                        <div class="timeline-icon symbol symbol-circle symbol-40px">
+                                            <div class="symbol-label bg-light">
+                                                <!--begin::Svg Icon | path: icons/duotone/General/Attachment2.svg-->
+                                                <span class="svg-icon svg-icon-2 svg-icon-gray-500">
+																	<svg xmlns="http://www.w3.org/2000/svg"
+                                                                         xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                                         width="24px" height="24px" viewBox="0 0 24 24"
+                                                                         version="1.1">
+																		<g stroke="none" stroke-width="1" fill="none"
+                                                                           fill-rule="evenodd">
+																			<rect x="0" y="0" width="24"
+                                                                                  height="24"></rect>
+																			<path d="M11.7573593,15.2426407 L8.75735931,15.2426407 C8.20507456,15.2426407 7.75735931,15.6903559 7.75735931,16.2426407 C7.75735931,16.7949254 8.20507456,17.2426407 8.75735931,17.2426407 L11.7573593,17.2426407 L11.7573593,18.2426407 C11.7573593,19.3472102 10.8619288,20.2426407 9.75735931,20.2426407 L5.75735931,20.2426407 C4.65278981,20.2426407 3.75735931,19.3472102 3.75735931,18.2426407 L3.75735931,14.2426407 C3.75735931,13.1380712 4.65278981,12.2426407 5.75735931,12.2426407 L9.75735931,12.2426407 C10.8619288,12.2426407 11.7573593,13.1380712 11.7573593,14.2426407 L11.7573593,15.2426407 Z"
+                                                                                  fill="#000000" opacity="0.3"
+                                                                                  transform="translate(7.757359, 16.242641) rotate(-45.000000) translate(-7.757359, -16.242641)"></path>
+																			<path d="M12.2426407,8.75735931 L15.2426407,8.75735931 C15.7949254,8.75735931 16.2426407,8.30964406 16.2426407,7.75735931 C16.2426407,7.20507456 15.7949254,6.75735931 15.2426407,6.75735931 L12.2426407,6.75735931 L12.2426407,5.75735931 C12.2426407,4.65278981 13.1380712,3.75735931 14.2426407,3.75735931 L18.2426407,3.75735931 C19.3472102,3.75735931 20.2426407,4.65278981 20.2426407,5.75735931 L20.2426407,9.75735931 C20.2426407,10.8619288 19.3472102,11.7573593 18.2426407,11.7573593 L14.2426407,11.7573593 C13.1380712,11.7573593 12.2426407,10.8619288 12.2426407,9.75735931 L12.2426407,8.75735931 Z"
+                                                                                  fill="#000000"
+                                                                                  transform="translate(16.242641, 7.757359) rotate(-45.000000) translate(-16.242641, -7.757359)"></path>
+																			<path d="M5.89339828,3.42893219 C6.44568303,3.42893219 6.89339828,3.87664744 6.89339828,4.42893219 L6.89339828,6.42893219 C6.89339828,6.98121694 6.44568303,7.42893219 5.89339828,7.42893219 C5.34111353,7.42893219 4.89339828,6.98121694 4.89339828,6.42893219 L4.89339828,4.42893219 C4.89339828,3.87664744 5.34111353,3.42893219 5.89339828,3.42893219 Z M11.4289322,5.13603897 C11.8194565,5.52656326 11.8194565,6.15972824 11.4289322,6.55025253 L10.0147186,7.96446609 C9.62419433,8.35499039 8.99102936,8.35499039 8.60050506,7.96446609 C8.20998077,7.5739418 8.20998077,6.94077682 8.60050506,6.55025253 L10.0147186,5.13603897 C10.4052429,4.74551468 11.0384079,4.74551468 11.4289322,5.13603897 Z M0.600505063,5.13603897 C0.991029355,4.74551468 1.62419433,4.74551468 2.01471863,5.13603897 L3.42893219,6.55025253 C3.81945648,6.94077682 3.81945648,7.5739418 3.42893219,7.96446609 C3.0384079,8.35499039 2.40524292,8.35499039 2.01471863,7.96446609 L0.600505063,6.55025253 C0.209980772,6.15972824 0.209980772,5.52656326 0.600505063,5.13603897 Z"
+                                                                                  fill="#000000" opacity="0.3"
+                                                                                  transform="translate(6.014719, 5.843146) rotate(-45.000000) translate(-6.014719, -5.843146)"></path>
+																			<path d="M17.9142136,15.4497475 C18.4664983,15.4497475 18.9142136,15.8974627 18.9142136,16.4497475 L18.9142136,18.4497475 C18.9142136,19.0020322 18.4664983,19.4497475 17.9142136,19.4497475 C17.3619288,19.4497475 16.9142136,19.0020322 16.9142136,18.4497475 L16.9142136,16.4497475 C16.9142136,15.8974627 17.3619288,15.4497475 17.9142136,15.4497475 Z M23.4497475,17.1568542 C23.8402718,17.5473785 23.8402718,18.1805435 23.4497475,18.5710678 L22.0355339,19.9852814 C21.6450096,20.3758057 21.0118446,20.3758057 20.6213203,19.9852814 C20.2307961,19.5947571 20.2307961,18.9615921 20.6213203,18.5710678 L22.0355339,17.1568542 C22.4260582,16.76633 23.0592232,16.76633 23.4497475,17.1568542 Z M12.6213203,17.1568542 C13.0118446,16.76633 13.6450096,16.76633 14.0355339,17.1568542 L15.4497475,18.5710678 C15.8402718,18.9615921 15.8402718,19.5947571 15.4497475,19.9852814 C15.0592232,20.3758057 14.4260582,20.3758057 14.0355339,19.9852814 L12.6213203,18.5710678 C12.2307961,18.1805435 12.2307961,17.5473785 12.6213203,17.1568542 Z"
+                                                                                  fill="#000000" opacity="0.3"
+                                                                                  transform="translate(18.035534, 17.863961) scale(1, -1) rotate(45.000000) translate(-18.035534, -17.863961)"></path>
+																		</g>
+																	</svg>
+																</span>
+                                                <!--end::Svg Icon-->
+                                            </div>
+                                        </div>
+                                        <!--end::Timeline icon-->
+                                        <!--begin::Timeline content-->
+                                        <div class="timeline-content mb-10 mt-n1">
+                                            <!--begin::Timeline heading-->
+                                            <div class="mb-5 pe-3">
+                                                <!--begin::Title-->
+                                                <a href="#" class="fs-6 text-gray-800 text-hover-primary mb-2">
+                                                    سه فایل جدید آپلود کرد
+                                                </a>
+                                                <!--end::Title-->
+                                                <!--begin::Description-->
+                                                <div class="d-flex align-items-center mt-1 fs-6">
+                                                    <!--begin::Info-->
+                                                    <div class="text-muted me-2 fs-7"> 10:30</div>
+                                                    <!--end::Info-->
+                                                    <!--begin::User-->
+                                                    <div class="symbol symbol-circle symbol-25px"
+                                                         data-bs-toggle="tooltip" data-bs-boundary="window"
+                                                         data-bs-placement="top" title=""
+                                                         data-bs-original-title="Jan Hummer">
+                                                        <img src="assets/images/150-2.jpg" alt="img">
+                                                    </div>
+                                                    <!--end::User-->
+                                                </div>
+                                                <!--end::Description-->
+                                            </div>
+                                            <!--end::Timeline heading-->
+                                            <!--begin::Timeline details-->
+                                            <div class="overflow-auto pb-5">
+                                                <div class="d-flex align-items-center border border-dashed border-gray-300 rounded min-w-700px p-5">
+                                                    <!--begin::Item-->
+                                                    <div class="d-flex flex-aligns-center pe-5 pe-lg-20">
+                                                        <!--begin::Icon-->
+                                                        <img alt="" class="w-30px me-3" src="assets/images/pdf.svg">
+                                                        <!--end::Icon-->
+                                                        <!--begin::Info-->
+                                                        <div class="ms-1">
+                                                            <!--begin::Desc-->
+                                                            <a href="#" class="fs-6 text-hover-primary">Finance KPI App
+                                                                Guidelines</a>
+                                                            <!--end::Desc-->
+                                                            <!--begin::Number-->
+                                                            <div class="text-gray-400">1.9mb</div>
+                                                            <!--end::Number-->
+                                                        </div>
+                                                        <!--begin::Info-->
+                                                    </div>
+                                                    <!--end::Item-->
+                                                    <!--begin::Item-->
+                                                    <div class="d-flex flex-aligns-center pe-5 pe-lg-20">
+                                                        <!--begin::Icon-->
+                                                        <img alt="" class="w-30px me-3" src="assets/images/doc.svg">
+                                                        <!--end::Icon-->
+                                                        <!--begin::Info-->
+                                                        <div class="ms-1">
+                                                            <!--begin::Desc-->
+                                                            <a href="#" class="fs-6 text-hover-primary">Client UAT
+                                                                Testing Results</a>
+                                                            <!--end::Desc-->
+                                                            <!--begin::Number-->
+                                                            <div class="text-gray-400">18kb</div>
+                                                            <!--end::Number-->
+                                                        </div>
+                                                        <!--end::Info-->
+                                                    </div>
+                                                    <!--end::Item-->
+                                                    <!--begin::Item-->
+                                                    <div class="d-flex flex-aligns-center">
+                                                        <!--begin::Icon-->
+                                                        <img alt="" class="w-30px me-3" src="assets/images/css.svg">
+                                                        <!--end::Icon-->
+                                                        <!--begin::Info-->
+                                                        <div class="ms-1">
+                                                            <!--begin::Desc-->
+                                                            <a href="#" class="fs-6 text-hover-primary">Finance
+                                                                Reports</a>
+                                                            <!--end::Desc-->
+                                                            <!--begin::Number-->
+                                                            <div class="text-gray-400">20mb</div>
+                                                            <!--end::Number-->
+                                                        </div>
+                                                        <!--end::Icon-->
+                                                    </div>
+                                                    <!--end::Item-->
+                                                </div>
+                                            </div>
+                                            <!--end::Timeline details-->
+                                        </div>
+                                        <!--end::Timeline content-->
+                                    </div>
+                                    <!--end::Timeline item-->
+                                    <!--begin::Timeline item-->
+                                    <div class="timeline-item">
+                                        <!--begin::Timeline line-->
+                                        <div class="timeline-line w-40px"></div>
+                                        <!--end::Timeline line-->
+                                        <!--begin::Timeline icon-->
+                                        <div class="timeline-icon symbol symbol-circle symbol-40px">
+                                            <div class="symbol-label bg-light">
+                                                <!--begin::Svg Icon | path: icons/duotone/Home/Library.svg-->
+                                                <span class="svg-icon svg-icon-2 svg-icon-gray-500">
+																	<svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                                                         height="24" viewBox="0 0 24 24" fill="none">
+																		<path opacity="0.25"
+                                                                              d="M3.19406 11.1644C3.09247 10.5549 3.56251 10 4.18045 10H19.8195C20.4375 10 20.9075 10.5549 20.8059 11.1644L19.4178 19.4932C19.1767 20.9398 17.9251 22 16.4586 22H7.54138C6.07486 22 4.82329 20.9398 4.58219 19.4932L3.19406 11.1644Z"
+                                                                              fill="#7E8299"></path>
+																		<path d="M2 9.5C2 8.67157 2.67157 8 3.5 8H20.5C21.3284 8 22 8.67157 22 9.5C22 10.3284 21.3284 11 20.5 11H3.5C2.67157 11 2 10.3284 2 9.5Z"
+                                                                              fill="#7E8299"></path>
+																		<path d="M10 13C9.44772 13 9 13.4477 9 14V18C9 18.5523 9.44772 19 10 19C10.5523 19 11 18.5523 11 18V14C11 13.4477 10.5523 13 10 13Z"
+                                                                              fill="#7E8299"></path>
+																		<path d="M14 13C13.4477 13 13 13.4477 13 14V18C13 18.5523 13.4477 19 14 19C14.5523 19 15 18.5523 15 18V14C15 13.4477 14.5523 13 14 13Z"
+                                                                              fill="#7E8299"></path>
+																		<g opacity="0.25">
+																			<path d="M10.7071 3.70711C11.0976 3.31658 11.0976 2.68342 10.7071 2.29289C10.3166 1.90237 9.68342 1.90237 9.29289 2.29289L4.29289 7.29289C3.90237 7.68342 3.90237 8.31658 4.29289 8.70711C4.68342 9.09763 5.31658 9.09763 5.70711 8.70711L10.7071 3.70711Z"
+                                                                                  fill="#7E8299"></path>
+																			<path d="M13.2929 3.70711C12.9024 3.31658 12.9024 2.68342 13.2929 2.29289C13.6834 1.90237 14.3166 1.90237 14.7071 2.29289L19.7071 7.29289C20.0976 7.68342 20.0976 8.31658 19.7071 8.70711C19.3166 9.09763 18.6834 9.09763 18.2929 8.70711L13.2929 3.70711Z"
+                                                                                  fill="#7E8299"></path>
+																		</g>
+																	</svg>
+																</span>
+                                                <!--end::Svg Icon-->
+                                            </div>
+                                        </div>
+                                        <!--end::Timeline icon-->
+                                        <!--begin::Timeline content-->
+                                        <div class="timeline-content mb-10 mt-n1">
+                                            <!--begin::Timeline heading-->
+                                            <div class="pe-3 mb-5">
+                                                <!--begin::Title-->
+                                                <div class="fs-6 mb-2"> سفارش موفق
+                                                    <a href="#" class="text-primary ms-1">#45890</a>
+
+
+                                                </div>
+                                                <!--end::Title-->
+                                                <!--begin::Description-->
+                                                <div class="d-flex align-items-center mt-1 fs-6">
+                                                    <!--begin::Info-->
+                                                    <div class="text-muted me-2 fs-7">8:14</div>
+                                                    <!--end::Info-->
+                                                    <!--begin::User-->
+                                                    <div class="symbol symbol-circle symbol-25px"
+                                                         data-bs-toggle="tooltip" data-bs-boundary="window"
+                                                         data-bs-placement="top" title=""
+                                                         data-bs-original-title="Nina Nilson">
+                                                        <img src="assets/images/150-2.jpg" alt="img">
+                                                    </div>
+                                                    <!--end::User-->
+                                                </div>
+                                                <!--end::Description-->
+                                            </div>
+                                            <!--end::Timeline heading-->
+                                        </div>
+                                        <!--end::Timeline content-->
+                                    </div>
+                                    <!--end::Timeline item-->
+                                    <!--begin::Timeline item-->
+                                    <div class="timeline-item">
+                                        <!--begin::Timeline line-->
+                                        <div class="timeline-line w-40px"></div>
+                                        <!--end::Timeline line-->
+                                        <!--begin::Timeline icon-->
+                                        <div class="timeline-icon symbol symbol-circle symbol-40px me-4">
+                                            <div class="symbol-label bg-light">
+                                                <!--begin::Svg Icon | path: icons/duotone/Communication/Chat2.svg-->
+                                                <span class="svg-icon svg-icon-2 svg-icon-gray-500">
+																	<svg xmlns="http://www.w3.org/2000/svg" width="24px"
+                                                                         height="24px" viewBox="0 0 24 24"
+                                                                         version="1.1">
+																		<path d="M12.7037037,14 L15.6666667,10 L13.4444444,10 L13.4444444,6 L9,12 L11.2222222,12 L11.2222222,14 L6,14 C5.44771525,14 5,13.5522847 5,13 L5,3 C5,2.44771525 5.44771525,2 6,2 L18,2 C18.5522847,2 19,2.44771525 19,3 L19,13 C19,13.5522847 18.5522847,14 18,14 L12.7037037,14 Z"
+                                                                              fill="#000000" opacity="0.3"></path>
+																		<path d="M9.80428954,10.9142091 L9,12 L11.2222222,12 L11.2222222,16 L15.6666667,10 L15.4615385,10 L20.2072547,6.57253826 C20.4311176,6.4108595 20.7436609,6.46126971 20.9053396,6.68513259 C20.9668779,6.77033951 21,6.87277228 21,6.97787787 L21,17 C21,18.1045695 20.1045695,19 19,19 L5,19 C3.8954305,19 3,18.1045695 3,17 L3,6.97787787 C3,6.70173549 3.22385763,6.47787787 3.5,6.47787787 C3.60510559,6.47787787 3.70753836,6.51099993 3.79274528,6.57253826 L9.80428954,10.9142091 Z"
+                                                                              fill="#000000"></path>
+																	</svg>
+																</span>
+                                                <!--end::Svg Icon-->
+                                            </div>
+                                        </div>
+                                        <!--end::Timeline icon-->
+                                        <!--begin::Timeline content-->
+                                        <div class="timeline-content mb-10 mt-n1">
+                                            <!--begin::Timeline heading-->
+                                            <div class="pe-3 mb-5">
+                                                <!--begin::Title-->
+                                                <div class="fs-6 mb-2">
+                                                    یک جلسه جدید منتشر کرد
+                                                </div>
+                                                <!--end::Title-->
+                                                <!--begin::Description-->
+                                                <div class="d-flex align-items-center mt-1 fs-6">
+                                                    <!--begin::Info-->
+                                                    <div class="text-muted me-2 fs-7"> 4:23</div>
+                                                    <!--end::Info-->
+                                                    <!--begin::User-->
+                                                    <div class="symbol symbol-circle symbol-25px"
+                                                         data-bs-toggle="tooltip" data-bs-boundary="window"
+                                                         data-bs-placement="top" title=""
+                                                         data-bs-original-title="Nina Nilson">
+                                                        <img src="assets/images/150-2.jpg" alt="img">
+                                                    </div>
+                                                    <!--end::User-->
+                                                </div>
+                                                <!--end::Description-->
+                                            </div>
+                                            <!--end::Timeline heading-->
+                                            <!--begin::Timeline details-->
+                                            <div class="overflow-auto pb-5">
+                                                <!--begin::Record-->
+                                                <div class="d-flex align-items-center justify-content-between border border-dashed border-gray-300 rounded min-w-750px px-3 py-3 mb-5">
+                                                    <!--begin::Title-->
+                                                    <a href="#"
+                                                       class="fs-6 text-dark text-hover-primary w-100px min-w-100px">پلاگین
+                                                        ها</a>
+                                                    <!--end::Title-->
+                                                    <!--begin::Label-->
+                                                    <div class="min-w-175px pe-2">
+                                                        <span class="badge badge-light text-muted">استفاده از پکیج ها</span>
+                                                    </div>
+                                                    <!--end::Label-->
+
+                                                    <!--begin::Progress-->
+                                                    <div class="min-w-125px pe-2">
+                                                        <span class="badge badge-light-success">تایید شده</span>
+                                                    </div>
+                                                    <!--end::Progress-->
+                                                    <!--begin::Action-->
+                                                    <a href="#" class="btn btn-sm btn-light btn-active-light-primary">مشاهده</a>
+                                                    <!--end::Action-->
+                                                </div>
+                                                <!--end::Record-->
+                                            </div>
+                                            <!--end::Timeline details-->
+                                        </div>
+                                        <!--end::Timeline content-->
+                                    </div>
+                                    <!--end::Timeline item-->
+                                    <!--begin::Timeline item-->
+                                    <div class="timeline-item">
+                                        <!--begin::Timeline line-->
+                                        <div class="timeline-line w-40px"></div>
+                                        <!--end::Timeline line-->
+                                        <!--begin::Timeline icon-->
+                                        <div class="timeline-icon symbol symbol-circle symbol-40px">
+                                            <div class="symbol-label bg-light">
+                                                <!--begin::Svg Icon | path: icons/duotone/Communication/Write.svg-->
+                                                <span class="svg-icon svg-icon-2 svg-icon-gray-500">
+																	<svg xmlns="http://www.w3.org/2000/svg" width="24px"
+                                                                         height="24px" viewBox="0 0 24 24"
+                                                                         version="1.1">
+																		<path d="M11.6734943,8.3307728 L14.9993074,6.09979492 L14.1213255,5.22181303 C13.7308012,4.83128874 13.7308012,4.19812376 14.1213255,3.80759947 L15.535539,2.39338591 C15.9260633,2.00286161 16.5592283,2.00286161 16.9497526,2.39338591 L22.6066068,8.05024016 C22.9971311,8.44076445 22.9971311,9.07392943 22.6066068,9.46445372 L21.1923933,10.8786673 C20.801869,11.2691916 20.168704,11.2691916 19.7781797,10.8786673 L18.9002333,10.0007208 L16.6692373,13.3265608 C16.9264145,14.2523264 16.9984943,15.2320236 16.8664372,16.2092466 L16.4344698,19.4058049 C16.360509,19.9531149 15.8568695,20.3368403 15.3095595,20.2628795 C15.0925691,20.2335564 14.8912006,20.1338238 14.7363706,19.9789938 L5.02099894,10.2636221 C4.63047465,9.87309784 4.63047465,9.23993286 5.02099894,8.84940857 C5.17582897,8.69457854 5.37719743,8.59484594 5.59418783,8.56552292 L8.79074617,8.13355557 C9.76799113,8.00149544 10.7477104,8.0735815 11.6734943,8.3307728 Z"
+                                                                              fill="#000000"></path>
+																		<polygon fill="#000000" opacity="0.3"
+                                                                                 transform="translate(7.050253, 17.949747) rotate(-315.000000) translate(-7.050253, -17.949747)"
+                                                                                 points="5.55025253 13.9497475 5.55025253 19.6640332 7.05025253 21.9497475 8.55025253 19.6640332 8.55025253 13.9497475"></polygon>
+																	</svg>
+																</span>
+                                                <!--end::Svg Icon-->
+                                            </div>
+                                        </div>
+                                        <!--end::Timeline icon-->
+                                        <!--begin::Timeline content-->
+                                        <div class="timeline-content mb-10 mt-n1">
+                                            <!--begin::Timeline heading-->
+                                            <div class="pe-3 mb-5">
+                                                <!--begin::Title-->
+                                                <div class="fs-6 mb-2">یک مقاله جدید منتشر کرد</div>
+                                                <!--end::Title-->
+                                                <!--begin::Description-->
+                                                <div class="d-flex align-items-center mt-1 fs-6">
+                                                    <!--begin::Info-->
+                                                    <div class="text-muted me-2 fs-7"> 18:25</div>
+                                                    <!--end::Info-->
+                                                    <!--begin::User-->
+                                                    <div class="symbol symbol-circle symbol-25px"
+                                                         data-bs-toggle="tooltip" data-bs-boundary="window"
+                                                         data-bs-placement="top" title=""
+                                                         data-bs-original-title="Marcus Dotson">
+                                                        <img src="assets/images/150-2.jpg" alt="img">
+                                                    </div>
+                                                    <!--end::User-->
+                                                </div>
+                                                <!--end::Description-->
+                                            </div>
+                                            <!--end::Timeline heading-->
+                                            <!--begin::Timeline details-->
+                                            <!--begin::Timeline details-->
+                                            <div class="overflow-auto pb-5">
+                                                <!--begin::Record-->
+                                                <div class="d-flex align-items-center justify-content-between border border-dashed border-gray-300 rounded min-w-750px px-3 py-3 mb-5">
+                                                    <!--begin::Title-->
+                                                    <a href="#"
+                                                       class="fs-6 text-dark text-hover-primary min-w-100px">
+                                                        تفاوت react.js و vue.js
+                                                    </a>
+                                                    <!--end::Title-->
+                                                    <!--begin::Label-->
+                                                    <div class="min-w-175px pe-2">
+                                                        <span class="badge badge-light text-muted">وب سایت</span>
+                                                    </div>
+                                                    <!--end::Label-->
+
+                                                    <!--begin::Progress-->
+                                                    <div class="min-w-125px pe-2">
+                                                        <span class="badge badge-light-success">تایید شده</span>
+                                                    </div>
+                                                    <!--end::Progress-->
+                                                    <!--begin::Action-->
+                                                    <a href="#" class="btn btn-sm btn-light btn-active-light-primary">مشاهده</a>
+                                                    <!--end::Action-->
+                                                </div>
+                                                <!--end::Record-->
+                                            </div>
+                                            <!--end::Timeline details-->
+                                            <!--end::Timeline details-->
+                                        </div>
+                                        <!--end::Timeline content-->
+                                    </div>
+                                    <!--end::Timeline item-->
+                                    <!--begin::Timeline item-->
+                                    <div class="timeline-item">
+                                        <!--begin::Timeline line-->
+                                        <div class="timeline-line w-40px"></div>
+                                        <!--end::Timeline line-->
+                                        <!--begin::Timeline icon-->
+                                        <div class="timeline-icon symbol symbol-circle symbol-40px">
+                                            <div class="symbol-label bg-light">
+                                                <!--begin::Svg Icon | path: icons/duotone/Communication/Write.svg-->
+                                                <span class="svg-icon svg-icon-2 svg-icon-gray-500">
+																	<svg xmlns="http://www.w3.org/2000/svg" width="24px"
+                                                                         height="24px" viewBox="0 0 24 24"
+                                                                         version="1.1">
+																		<path d="M12.2674799,18.2323597 L12.0084872,5.45852451 C12.0004303,5.06114792 12.1504154,4.6768183 12.4255037,4.38993949 L15.0030167,1.70195304 L17.5910752,4.40093695 C17.8599071,4.6812911 18.0095067,5.05499603 18.0083938,5.44341307 L17.9718262,18.2062508 C17.9694575,19.0329966 17.2985816,19.701953 16.4718324,19.701953 L13.7671717,19.701953 C12.9505952,19.701953 12.2840328,19.0487684 12.2674799,18.2323597 Z"
+                                                                              fill="#000000" fill-rule="nonzero"
+                                                                              transform="translate(14.701953, 10.701953) rotate(-135.000000) translate(-14.701953, -10.701953)"></path>
+																		<path d="M12.9,2 C13.4522847,2 13.9,2.44771525 13.9,3 C13.9,3.55228475 13.4522847,4 12.9,4 L6,4 C4.8954305,4 4,4.8954305 4,6 L4,18 C4,19.1045695 4.8954305,20 6,20 L18,20 C19.1045695,20 20,19.1045695 20,18 L20,13 C20,12.4477153 20.4477153,12 21,12 C21.5522847,12 22,12.4477153 22,13 L22,18 C22,20.209139 20.209139,22 18,22 L6,22 C3.790861,22 2,20.209139 2,18 L2,6 C2,3.790861 3.790861,2 6,2 L12.9,2 Z"
+                                                                              fill="#000000" fill-rule="nonzero"
+                                                                              opacity="0.3"></path>
+																	</svg>
+																</span>
+                                                <!--end::Svg Icon-->
+                                            </div>
+                                        </div>
+                                        <!--end::Timeline icon-->
+                                        <!--begin::Timeline content-->
+                                        <div class="timeline-content mb-10 mt-n1">
+                                            <!--begin::Timeline heading-->
+                                            <div class="pe-3 mb-5">
+                                                <!--begin::Title-->
+                                                <div class="fs-6 mb-2">ثبت یک درخواست تسویه جدید</div>
+                                                <!--end::Title-->
+                                                <!--begin::Description-->
+                                                <div class="d-flex align-items-center mt-1 fs-6">
+                                                    <!--begin::Info-->
+                                                    <div class="text-muted me-2 fs-7">22:22</div>
+                                                    <!--end::Info-->
+                                                    <!--begin::User-->
+                                                    <div class="symbol symbol-circle symbol-25px"
+                                                         data-bs-toggle="tooltip" data-bs-boundary="window"
+                                                         data-bs-placement="top" title=""
+                                                         data-bs-original-title="Robert Rich">
+                                                        <img src="assets/images/150-11.jpg" alt="img">
+                                                    </div>
+                                                    <!--end::User-->
+                                                </div>
+                                                <!--end::Description-->
+                                            </div>
+                                            <!--end::Timeline heading-->
+                                            <!--begin::Timeline details-->
+                                            <div class="overflow-auto pb-5">
+                                                <!--begin::Notice-->
+                                                <div class="notice d-flex bg-light-primary rounded border-primary border border-dashed min-w-lg-600px flex-shrink-0 p-5">
+                                                    <!--begin::Icon-->
+                                                    <!--begin::Svg Icon | path: icons/duotone/Code/Git4.svg-->
+                                                    <span class="svg-icon svg-icon-2tx svg-icon-primary me-4">
+																		<svg xmlns="http://www.w3.org/2000/svg"
+                                                                             width="24px" height="24px"
+                                                                             viewBox="0 0 24 24" version="1.1">
+																			<path d="M6,7 C7.1045695,7 8,6.1045695 8,5 C8,3.8954305 7.1045695,3 6,3 C4.8954305,3 4,3.8954305 4,5 C4,6.1045695 4.8954305,7 6,7 Z M6,9 C3.790861,9 2,7.209139 2,5 C2,2.790861 3.790861,1 6,1 C8.209139,1 10,2.790861 10,5 C10,7.209139 8.209139,9 6,9 Z"
+                                                                                  fill="#000000"
+                                                                                  fill-rule="nonzero"></path>
+																			<path d="M7,11.4648712 L7,17 C7,18.1045695 7.8954305,19 9,19 L15,19 L15,21 L9,21 C6.790861,21 5,19.209139 5,17 L5,8 L5,7 L7,7 L7,8 C7,9.1045695 7.8954305,10 9,10 L15,10 L15,12 L9,12 C8.27142571,12 7.58834673,11.8052114 7,11.4648712 Z"
+                                                                                  fill="#000000" fill-rule="nonzero"
+                                                                                  opacity="0.3"></path>
+																			<path d="M18,22 C19.1045695,22 20,21.1045695 20,20 C20,18.8954305 19.1045695,18 18,18 C16.8954305,18 16,18.8954305 16,20 C16,21.1045695 16.8954305,22 18,22 Z M18,24 C15.790861,24 14,22.209139 14,20 C14,17.790861 15.790861,16 18,16 C20.209139,16 22,17.790861 22,20 C22,22.209139 20.209139,24 18,24 Z"
+                                                                                  fill="#000000"
+                                                                                  fill-rule="nonzero"></path>
+																			<path d="M18,13 C19.1045695,13 20,12.1045695 20,11 C20,9.8954305 19.1045695,9 18,9 C16.8954305,9 16,9.8954305 16,11 C16,12.1045695 16.8954305,13 18,13 Z M18,15 C15.790861,15 14,13.209139 14,11 C14,8.790861 15.790861,7 18,7 C20.209139,7 22,8.790861 22,11 C22,13.209139 20.209139,15 18,15 Z"
+                                                                                  fill="#000000"
+                                                                                  fill-rule="nonzero"></path>
+																		</svg>
+																	</span>
+                                                    <!--end::Svg Icon-->
+                                                    <!--end::Icon-->
+                                                    <!--begin::Wrapper-->
+                                                    <div class="d-flex flex-stack flex-grow-1 flex-wrap flex-md-nowrap">
+                                                        <!--begin::Content-->
+                                                        <div class="mb-3 mb-md-0">
+                                                            <h4 class="text-gray-800">
+                                                                درخواست تسویه
+                                                            </h4>
+                                                            <div class="fs-6 text-gray-600 pe-7">
+                                                                750,000 تومان
+                                                            </div>
+                                                        </div>
+                                                        <!--end::Content-->
+                                                        <!--begin::Action-->
+                                                        <a href="#"
+                                                           class="btn btn-primary px-6 align-self-center text-nowrap">تسویه</a>
+                                                        <!--end::Action-->
+                                                    </div>
+                                                    <!--end::Wrapper-->
+                                                </div>
+                                                <!--end::Notice-->
+                                            </div>
+                                            <!--end::Timeline details-->
+                                        </div>
+                                        <!--end::Timeline content-->
+                                    </div>
+                                    <!--end::Timeline item-->
+                                </div>
+                                <!--end::Timeline-->
+                            </div>
+                            <!--end::Tab panel-->
+                            <!--begin::Tab panel-->
+                            <div id="kt_activity_week" class="card-body p-0 tab-pane fade show" role="tabpanel"
+                                 aria-labelledby="kt_activity_today_tab">
+                                <!--begin::Timeline-->
+                                <div class="timeline">
+                                    <!--begin::Timeline item-->
+                                    <div class="timeline-item">
+                                        <!--begin::Timeline line-->
+                                        <div class="timeline-line w-40px"></div>
+                                        <!--end::Timeline line-->
+                                        <!--begin::Timeline icon-->
+                                        <div class="timeline-icon symbol symbol-circle symbol-40px me-4">
+                                            <div class="symbol-label bg-light">
+                                                <!--begin::Svg Icon | path: icons/duotone/Communication/Chat2.svg-->
+                                                <span class="svg-icon svg-icon-2 svg-icon-gray-500">
+																	<svg xmlns="http://www.w3.org/2000/svg" width="24px"
+                                                                         height="24px" viewBox="0 0 24 24"
+                                                                         version="1.1">
+																		<path d="M12.7037037,14 L15.6666667,10 L13.4444444,10 L13.4444444,6 L9,12 L11.2222222,12 L11.2222222,14 L6,14 C5.44771525,14 5,13.5522847 5,13 L5,3 C5,2.44771525 5.44771525,2 6,2 L18,2 C18.5522847,2 19,2.44771525 19,3 L19,13 C19,13.5522847 18.5522847,14 18,14 L12.7037037,14 Z"
+                                                                              fill="#000000" opacity="0.3"></path>
+																		<path d="M9.80428954,10.9142091 L9,12 L11.2222222,12 L11.2222222,16 L15.6666667,10 L15.4615385,10 L20.2072547,6.57253826 C20.4311176,6.4108595 20.7436609,6.46126971 20.9053396,6.68513259 C20.9668779,6.77033951 21,6.87277228 21,6.97787787 L21,17 C21,18.1045695 20.1045695,19 19,19 L5,19 C3.8954305,19 3,18.1045695 3,17 L3,6.97787787 C3,6.70173549 3.22385763,6.47787787 3.5,6.47787787 C3.60510559,6.47787787 3.70753836,6.51099993 3.79274528,6.57253826 L9.80428954,10.9142091 Z"
+                                                                              fill="#000000"></path>
+																	</svg>
+																</span>
+                                                <!--end::Svg Icon-->
+                                            </div>
+                                        </div>
+                                        <!--end::Timeline icon-->
+                                        <!--begin::Timeline content-->
+                                        <div class="timeline-content mb-10 mt-n1">
+                                            <!--begin::Timeline heading-->
+                                            <div class="pe-3 mb-5">
+                                                <!--begin::Title-->
+                                                <div class="fs-6 mb-2">
+                                                    یک جلسه جدید منتشر کرد
+                                                </div>
+                                                <!--end::Title-->
+                                                <!--begin::Description-->
+                                                <div class="d-flex align-items-center mt-1 fs-6">
+                                                    <!--begin::Info-->
+                                                    <div class="text-muted me-2 fs-7"> 4:23</div>
+                                                    <!--end::Info-->
+                                                    <!--begin::User-->
+                                                    <div class="symbol symbol-circle symbol-25px"
+                                                         data-bs-toggle="tooltip" data-bs-boundary="window"
+                                                         data-bs-placement="top" title=""
+                                                         data-bs-original-title="Nina Nilson">
+                                                        <img src="assets/images/150-2.jpg" alt="img">
+                                                    </div>
+                                                    <!--end::User-->
+                                                </div>
+                                                <!--end::Description-->
+                                            </div>
+                                            <!--end::Timeline heading-->
+                                            <!--begin::Timeline details-->
+                                            <div class="overflow-auto pb-5">
+                                                <!--begin::Record-->
+                                                <div class="d-flex align-items-center justify-content-between border border-dashed border-gray-300 rounded min-w-750px px-3 py-3 mb-5">
+                                                    <!--begin::Title-->
+                                                    <a href="#"
+                                                       class="fs-6 text-dark text-hover-primary w-100px min-w-100px">پلاگین
+                                                        ها</a>
+                                                    <!--end::Title-->
+                                                    <!--begin::Label-->
+                                                    <div class="min-w-175px pe-2">
+                                                        <span class="badge badge-light text-muted">استفاده از پکیج ها</span>
+                                                    </div>
+                                                    <!--end::Label-->
+
+                                                    <!--begin::Progress-->
+                                                    <div class="min-w-125px pe-2">
+                                                        <span class="badge badge-light-success">تایید شده</span>
+                                                    </div>
+                                                    <!--end::Progress-->
+                                                    <!--begin::Action-->
+                                                    <a href="#" class="btn btn-sm btn-light btn-active-light-primary">مشاهده</a>
+                                                    <!--end::Action-->
+                                                </div>
+                                                <!--end::Record-->
+                                            </div>
+                                            <!--end::Timeline details-->
+                                        </div>
+                                        <!--end::Timeline content-->
+                                    </div>
+                                    <!--end::Timeline item-->
+                                    <!--begin::Timeline item-->
+                                    <div class="timeline-item">
+                                        <!--begin::Timeline line-->
+                                        <div class="timeline-line w-40px"></div>
+                                        <!--end::Timeline line-->
+                                        <!--begin::Timeline icon-->
+                                        <div class="timeline-icon symbol symbol-circle symbol-40px">
+                                            <div class="symbol-label bg-light">
+                                                <!--begin::Svg Icon | path: icons/duotone/Communication/Write.svg-->
+                                                <span class="svg-icon svg-icon-2 svg-icon-gray-500">
+																	<svg xmlns="http://www.w3.org/2000/svg" width="24px"
+                                                                         height="24px" viewBox="0 0 24 24"
+                                                                         version="1.1">
+																		<path d="M11.6734943,8.3307728 L14.9993074,6.09979492 L14.1213255,5.22181303 C13.7308012,4.83128874 13.7308012,4.19812376 14.1213255,3.80759947 L15.535539,2.39338591 C15.9260633,2.00286161 16.5592283,2.00286161 16.9497526,2.39338591 L22.6066068,8.05024016 C22.9971311,8.44076445 22.9971311,9.07392943 22.6066068,9.46445372 L21.1923933,10.8786673 C20.801869,11.2691916 20.168704,11.2691916 19.7781797,10.8786673 L18.9002333,10.0007208 L16.6692373,13.3265608 C16.9264145,14.2523264 16.9984943,15.2320236 16.8664372,16.2092466 L16.4344698,19.4058049 C16.360509,19.9531149 15.8568695,20.3368403 15.3095595,20.2628795 C15.0925691,20.2335564 14.8912006,20.1338238 14.7363706,19.9789938 L5.02099894,10.2636221 C4.63047465,9.87309784 4.63047465,9.23993286 5.02099894,8.84940857 C5.17582897,8.69457854 5.37719743,8.59484594 5.59418783,8.56552292 L8.79074617,8.13355557 C9.76799113,8.00149544 10.7477104,8.0735815 11.6734943,8.3307728 Z"
+                                                                              fill="#000000"></path>
+																		<polygon fill="#000000" opacity="0.3"
+                                                                                 transform="translate(7.050253, 17.949747) rotate(-315.000000) translate(-7.050253, -17.949747)"
+                                                                                 points="5.55025253 13.9497475 5.55025253 19.6640332 7.05025253 21.9497475 8.55025253 19.6640332 8.55025253 13.9497475"></polygon>
+																	</svg>
+																</span>
+                                                <!--end::Svg Icon-->
+                                            </div>
+                                        </div>
+                                        <!--end::Timeline icon-->
+                                        <!--begin::Timeline content-->
+                                        <div class="timeline-content mb-10 mt-n1">
+                                            <!--begin::Timeline heading-->
+                                            <div class="pe-3 mb-5">
+                                                <!--begin::Title-->
+                                                <div class="fs-6 mb-2">یک مقاله جدید منتشر کرد</div>
+                                                <!--end::Title-->
+                                                <!--begin::Description-->
+                                                <div class="d-flex align-items-center mt-1 fs-6">
+                                                    <!--begin::Info-->
+                                                    <div class="text-muted me-2 fs-7"> 18:25</div>
+                                                    <!--end::Info-->
+                                                    <!--begin::User-->
+                                                    <div class="symbol symbol-circle symbol-25px"
+                                                         data-bs-toggle="tooltip" data-bs-boundary="window"
+                                                         data-bs-placement="top" title=""
+                                                         data-bs-original-title="Marcus Dotson">
+                                                        <img src="assets/images/150-2.jpg" alt="img">
+                                                    </div>
+                                                    <!--end::User-->
+                                                </div>
+                                                <!--end::Description-->
+                                            </div>
+                                            <!--end::Timeline heading-->
+                                            <!--begin::Timeline details-->
+                                            <!--begin::Timeline details-->
+                                            <div class="overflow-auto pb-5">
+                                                <!--begin::Record-->
+                                                <div class="d-flex align-items-center justify-content-between border border-dashed border-gray-300 rounded min-w-750px px-3 py-3 mb-5">
+                                                    <!--begin::Title-->
+                                                    <a href="#"
+                                                       class="fs-6 text-dark text-hover-primary min-w-100px">
+                                                        تفاوت react.js و vue.js
+                                                    </a>
+                                                    <!--end::Title-->
+                                                    <!--begin::Label-->
+                                                    <div class="min-w-175px pe-2">
+                                                        <span class="badge badge-light text-muted">وب سایت</span>
+                                                    </div>
+                                                    <!--end::Label-->
+
+                                                    <!--begin::Progress-->
+                                                    <div class="min-w-125px pe-2">
+                                                        <span class="badge badge-light-success">تایید شده</span>
+                                                    </div>
+                                                    <!--end::Progress-->
+                                                    <!--begin::Action-->
+                                                    <a href="#" class="btn btn-sm btn-light btn-active-light-primary">مشاهده</a>
+                                                    <!--end::Action-->
+                                                </div>
+                                                <!--end::Record-->
+                                            </div>
+                                            <!--end::Timeline details-->
+                                            <!--end::Timeline details-->
+                                        </div>
+                                        <!--end::Timeline content-->
+                                    </div>
+                                    <!--end::Timeline item-->
+                                    <!--begin::Timeline item-->
+                                    <div class="timeline-item">
+                                        <!--begin::Timeline line-->
+                                        <div class="timeline-line w-40px"></div>
+                                        <!--end::Timeline line-->
+                                        <!--begin::Timeline icon-->
+                                        <div class="timeline-icon symbol symbol-circle symbol-40px">
+                                            <div class="symbol-label bg-light">
+                                                <!--begin::Svg Icon | path: icons/duotone/Communication/Write.svg-->
+                                                <span class="svg-icon svg-icon-2 svg-icon-gray-500">
+																	<svg xmlns="http://www.w3.org/2000/svg" width="24px"
+                                                                         height="24px" viewBox="0 0 24 24"
+                                                                         version="1.1">
+																		<path d="M12.2674799,18.2323597 L12.0084872,5.45852451 C12.0004303,5.06114792 12.1504154,4.6768183 12.4255037,4.38993949 L15.0030167,1.70195304 L17.5910752,4.40093695 C17.8599071,4.6812911 18.0095067,5.05499603 18.0083938,5.44341307 L17.9718262,18.2062508 C17.9694575,19.0329966 17.2985816,19.701953 16.4718324,19.701953 L13.7671717,19.701953 C12.9505952,19.701953 12.2840328,19.0487684 12.2674799,18.2323597 Z"
+                                                                              fill="#000000" fill-rule="nonzero"
+                                                                              transform="translate(14.701953, 10.701953) rotate(-135.000000) translate(-14.701953, -10.701953)"></path>
+																		<path d="M12.9,2 C13.4522847,2 13.9,2.44771525 13.9,3 C13.9,3.55228475 13.4522847,4 12.9,4 L6,4 C4.8954305,4 4,4.8954305 4,6 L4,18 C4,19.1045695 4.8954305,20 6,20 L18,20 C19.1045695,20 20,19.1045695 20,18 L20,13 C20,12.4477153 20.4477153,12 21,12 C21.5522847,12 22,12.4477153 22,13 L22,18 C22,20.209139 20.209139,22 18,22 L6,22 C3.790861,22 2,20.209139 2,18 L2,6 C2,3.790861 3.790861,2 6,2 L12.9,2 Z"
+                                                                              fill="#000000" fill-rule="nonzero"
+                                                                              opacity="0.3"></path>
+																	</svg>
+																</span>
+                                                <!--end::Svg Icon-->
+                                            </div>
+                                        </div>
+                                        <!--end::Timeline icon-->
+                                        <!--begin::Timeline content-->
+                                        <div class="timeline-content mb-10 mt-n1">
+                                            <!--begin::Timeline heading-->
+                                            <div class="pe-3 mb-5">
+                                                <!--begin::Title-->
+                                                <div class="fs-6 mb-2">ثبت یک درخواست تسویه جدید</div>
+                                                <!--end::Title-->
+                                                <!--begin::Description-->
+                                                <div class="d-flex align-items-center mt-1 fs-6">
+                                                    <!--begin::Info-->
+                                                    <div class="text-muted me-2 fs-7">22:22</div>
+                                                    <!--end::Info-->
+                                                    <!--begin::User-->
+                                                    <div class="symbol symbol-circle symbol-25px"
+                                                         data-bs-toggle="tooltip" data-bs-boundary="window"
+                                                         data-bs-placement="top" title=""
+                                                         data-bs-original-title="Robert Rich">
+                                                        <img src="assets/images/150-11.jpg" alt="img">
+                                                    </div>
+                                                    <!--end::User-->
+                                                </div>
+                                                <!--end::Description-->
+                                            </div>
+                                            <!--end::Timeline heading-->
+                                            <!--begin::Timeline details-->
+                                            <div class="overflow-auto pb-5">
+                                                <!--begin::Notice-->
+                                                <div class="notice d-flex bg-light-primary rounded border-primary border border-dashed min-w-lg-600px flex-shrink-0 p-5">
+                                                    <!--begin::Icon-->
+                                                    <!--begin::Svg Icon | path: icons/duotone/Code/Git4.svg-->
+                                                    <span class="svg-icon svg-icon-2tx svg-icon-primary me-4">
+																		<svg xmlns="http://www.w3.org/2000/svg"
+                                                                             width="24px" height="24px"
+                                                                             viewBox="0 0 24 24" version="1.1">
+																			<path d="M6,7 C7.1045695,7 8,6.1045695 8,5 C8,3.8954305 7.1045695,3 6,3 C4.8954305,3 4,3.8954305 4,5 C4,6.1045695 4.8954305,7 6,7 Z M6,9 C3.790861,9 2,7.209139 2,5 C2,2.790861 3.790861,1 6,1 C8.209139,1 10,2.790861 10,5 C10,7.209139 8.209139,9 6,9 Z"
+                                                                                  fill="#000000"
+                                                                                  fill-rule="nonzero"></path>
+																			<path d="M7,11.4648712 L7,17 C7,18.1045695 7.8954305,19 9,19 L15,19 L15,21 L9,21 C6.790861,21 5,19.209139 5,17 L5,8 L5,7 L7,7 L7,8 C7,9.1045695 7.8954305,10 9,10 L15,10 L15,12 L9,12 C8.27142571,12 7.58834673,11.8052114 7,11.4648712 Z"
+                                                                                  fill="#000000" fill-rule="nonzero"
+                                                                                  opacity="0.3"></path>
+																			<path d="M18,22 C19.1045695,22 20,21.1045695 20,20 C20,18.8954305 19.1045695,18 18,18 C16.8954305,18 16,18.8954305 16,20 C16,21.1045695 16.8954305,22 18,22 Z M18,24 C15.790861,24 14,22.209139 14,20 C14,17.790861 15.790861,16 18,16 C20.209139,16 22,17.790861 22,20 C22,22.209139 20.209139,24 18,24 Z"
+                                                                                  fill="#000000"
+                                                                                  fill-rule="nonzero"></path>
+																			<path d="M18,13 C19.1045695,13 20,12.1045695 20,11 C20,9.8954305 19.1045695,9 18,9 C16.8954305,9 16,9.8954305 16,11 C16,12.1045695 16.8954305,13 18,13 Z M18,15 C15.790861,15 14,13.209139 14,11 C14,8.790861 15.790861,7 18,7 C20.209139,7 22,8.790861 22,11 C22,13.209139 20.209139,15 18,15 Z"
+                                                                                  fill="#000000"
+                                                                                  fill-rule="nonzero"></path>
+																		</svg>
+																	</span>
+                                                    <!--end::Svg Icon-->
+                                                    <!--end::Icon-->
+                                                    <!--begin::Wrapper-->
+                                                    <div class="d-flex flex-stack flex-grow-1 flex-wrap flex-md-nowrap">
+                                                        <!--begin::Content-->
+                                                        <div class="mb-3 mb-md-0">
+                                                            <h4 class="text-gray-800">
+                                                                درخواست تسویه
+                                                            </h4>
+                                                            <div class="fs-6 text-gray-600 pe-7">
+                                                                750,000 تومان
+                                                            </div>
+                                                        </div>
+                                                        <!--end::Content-->
+                                                        <!--begin::Action-->
+                                                        <a href="#"
+                                                           class="btn btn-primary px-6 align-self-center text-nowrap">تسویه</a>
+                                                        <!--end::Action-->
+                                                    </div>
+                                                    <!--end::Wrapper-->
+                                                </div>
+                                                <!--end::Notice-->
+                                            </div>
+                                            <!--end::Timeline details-->
+                                        </div>
+                                        <!--end::Timeline content-->
+                                    </div>
+                                    <!--end::Timeline item-->
+                                </div>
+                                <!--end::Timeline-->
+                            </div>
+                            <!--end::Tab panel-->
+                            <!--begin::Tab panel-->
+                            <div id="kt_activity_month" class="card-body p-0 tab-pane fade show" role="tabpanel"
+                                 aria-labelledby="kt_activity_today_tab">
+                                <!--begin::Timeline-->
+                                <div class="timeline">
+                                    <!--begin::Timeline item-->
+                                    <div class="timeline-item">
+                                        <!--begin::Timeline line-->
+                                        <div class="timeline-line w-40px"></div>
+                                        <!--end::Timeline line-->
+                                        <!--begin::Timeline icon-->
+                                        <div class="timeline-icon symbol symbol-circle symbol-40px me-4">
+                                            <div class="symbol-label bg-light">
+                                                <!--begin::Svg Icon | path: icons/duotone/Communication/Chat2.svg-->
+                                                <span class="svg-icon svg-icon-2 svg-icon-gray-500">
+																	<svg xmlns="http://www.w3.org/2000/svg" width="24px"
+                                                                         height="24px" viewBox="0 0 24 24"
+                                                                         version="1.1">
+																		<polygon fill="#000000" opacity="0.3"
+                                                                                 points="5 15 3 21.5 9.5 19.5"></polygon>
+																		<path d="M13.5,21 C8.25329488,21 4,16.7467051 4,11.5 C4,6.25329488 8.25329488,2 13.5,2 C18.7467051,2 23,6.25329488 23,11.5 C23,16.7467051 18.7467051,21 13.5,21 Z M9,8 C8.44771525,8 8,8.44771525 8,9 C8,9.55228475 8.44771525,10 9,10 L18,10 C18.5522847,10 19,9.55228475 19,9 C19,8.44771525 18.5522847,8 18,8 L9,8 Z M9,12 C8.44771525,12 8,12.4477153 8,13 C8,13.5522847 8.44771525,14 9,14 L14,14 C14.5522847,14 15,13.5522847 15,13 C15,12.4477153 14.5522847,12 14,12 L9,12 Z"
+                                                                              fill="#000000"></path>
+																	</svg>
+																</span>
+                                                <!--end::Svg Icon-->
+                                            </div>
+                                        </div>
+                                        <!--end::Timeline icon-->
+                                        <!--begin::Timeline content-->
+                                        <div class="timeline-content mb-10 mt-n1">
+                                            <!--begin::Timeline heading-->
+                                            <div class="pe-3 mb-5">
+                                                <!--begin::Title-->
+                                                <div class="fs-6 mb-2">
+                                                    ثبت یک تیکت پشتیبانی
+                                                </div>
+                                                <!--end::Title-->
+                                                <!--begin::Description-->
+                                                <div class="d-flex align-items-center mt-1 fs-6">
+                                                    <!--begin::Info-->
+                                                    <div class="text-muted me-2 fs-7"> 4:23</div>
+                                                    <!--end::Info-->
+                                                    <!--begin::User-->
+                                                    <div class="symbol symbol-circle symbol-25px"
+                                                         data-bs-toggle="tooltip" data-bs-boundary="window"
+                                                         data-bs-placement="top" title=""
+                                                         data-bs-original-title="Nina Nilson">
+                                                        <img src="assets/images/150-2.jpg" alt="img">
+                                                    </div>
+                                                    <!--end::User-->
+                                                </div>
+                                                <!--end::Description-->
+                                            </div>
+                                            <!--end::Timeline heading-->
+                                            <!--begin::Timeline details-->
+                                            <div class="overflow-auto pb-5">
+                                                <!--begin::Record-->
+                                                <div class="d-flex align-items-center justify-content-between border border-dashed border-gray-300 rounded min-w-750px px-3 py-3 mb-5">
+                                                    <!--begin::Title-->
+                                                    <a href="#"
+                                                       class="fs-6 text-dark text-hover-primary min-w-200px">مشکل
+                                                        فنی در خرید دوره</a>
+                                                    <!--end::Title-->
+                                                    <!--begin::Label-->
+                                                    <div class="min-w-175px pe-2">
+                                                        <span class="badge badge-light text-muted">مشکل فنی</span>
+                                                    </div>
+                                                    <!--end::Label-->
+
+                                                    <!--begin::Progress-->
+                                                    <div class="min-w-125px pe-2">
+                                                        <span class="badge badge-light-primary">در حال انتظار</span>
+                                                    </div>
+                                                    <!--end::Progress-->
+                                                    <!--begin::Action-->
+                                                    <a href="#" class="btn btn-sm btn-light btn-active-light-primary">مشاهده</a>
+                                                    <!--end::Action-->
+                                                </div>
+                                                <!--end::Record-->
+                                            </div>
+                                            <!--end::Timeline details-->
+                                        </div>
+                                        <!--end::Timeline content-->
+                                    </div>
+                                    <!--end::Timeline item-->
+                                    <!--begin::Timeline item-->
+                                    <div class="timeline-item">
+                                        <!--begin::Timeline line-->
+                                        <div class="timeline-line w-40px"></div>
+                                        <!--end::Timeline line-->
+                                        <!--begin::Timeline icon-->
+                                        <div class="timeline-icon symbol symbol-circle symbol-40px">
+                                            <div class="symbol-label bg-light">
+                                                <!--begin::Svg Icon | path: icons/duotone/General/Attachment2.svg-->
+                                                <span class="svg-icon svg-icon-2 svg-icon-gray-500">
+																	<svg xmlns="http://www.w3.org/2000/svg"
+                                                                         xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                                         width="24px" height="24px" viewBox="0 0 24 24"
+                                                                         version="1.1">
+																		<g stroke="none" stroke-width="1" fill="none"
+                                                                           fill-rule="evenodd">
+																			<rect x="0" y="0" width="24"
+                                                                                  height="24"></rect>
+																			<path d="M11.7573593,15.2426407 L8.75735931,15.2426407 C8.20507456,15.2426407 7.75735931,15.6903559 7.75735931,16.2426407 C7.75735931,16.7949254 8.20507456,17.2426407 8.75735931,17.2426407 L11.7573593,17.2426407 L11.7573593,18.2426407 C11.7573593,19.3472102 10.8619288,20.2426407 9.75735931,20.2426407 L5.75735931,20.2426407 C4.65278981,20.2426407 3.75735931,19.3472102 3.75735931,18.2426407 L3.75735931,14.2426407 C3.75735931,13.1380712 4.65278981,12.2426407 5.75735931,12.2426407 L9.75735931,12.2426407 C10.8619288,12.2426407 11.7573593,13.1380712 11.7573593,14.2426407 L11.7573593,15.2426407 Z"
+                                                                                  fill="#000000" opacity="0.3"
+                                                                                  transform="translate(7.757359, 16.242641) rotate(-45.000000) translate(-7.757359, -16.242641)"></path>
+																			<path d="M12.2426407,8.75735931 L15.2426407,8.75735931 C15.7949254,8.75735931 16.2426407,8.30964406 16.2426407,7.75735931 C16.2426407,7.20507456 15.7949254,6.75735931 15.2426407,6.75735931 L12.2426407,6.75735931 L12.2426407,5.75735931 C12.2426407,4.65278981 13.1380712,3.75735931 14.2426407,3.75735931 L18.2426407,3.75735931 C19.3472102,3.75735931 20.2426407,4.65278981 20.2426407,5.75735931 L20.2426407,9.75735931 C20.2426407,10.8619288 19.3472102,11.7573593 18.2426407,11.7573593 L14.2426407,11.7573593 C13.1380712,11.7573593 12.2426407,10.8619288 12.2426407,9.75735931 L12.2426407,8.75735931 Z"
+                                                                                  fill="#000000"
+                                                                                  transform="translate(16.242641, 7.757359) rotate(-45.000000) translate(-16.242641, -7.757359)"></path>
+																			<path d="M5.89339828,3.42893219 C6.44568303,3.42893219 6.89339828,3.87664744 6.89339828,4.42893219 L6.89339828,6.42893219 C6.89339828,6.98121694 6.44568303,7.42893219 5.89339828,7.42893219 C5.34111353,7.42893219 4.89339828,6.98121694 4.89339828,6.42893219 L4.89339828,4.42893219 C4.89339828,3.87664744 5.34111353,3.42893219 5.89339828,3.42893219 Z M11.4289322,5.13603897 C11.8194565,5.52656326 11.8194565,6.15972824 11.4289322,6.55025253 L10.0147186,7.96446609 C9.62419433,8.35499039 8.99102936,8.35499039 8.60050506,7.96446609 C8.20998077,7.5739418 8.20998077,6.94077682 8.60050506,6.55025253 L10.0147186,5.13603897 C10.4052429,4.74551468 11.0384079,4.74551468 11.4289322,5.13603897 Z M0.600505063,5.13603897 C0.991029355,4.74551468 1.62419433,4.74551468 2.01471863,5.13603897 L3.42893219,6.55025253 C3.81945648,6.94077682 3.81945648,7.5739418 3.42893219,7.96446609 C3.0384079,8.35499039 2.40524292,8.35499039 2.01471863,7.96446609 L0.600505063,6.55025253 C0.209980772,6.15972824 0.209980772,5.52656326 0.600505063,5.13603897 Z"
+                                                                                  fill="#000000" opacity="0.3"
+                                                                                  transform="translate(6.014719, 5.843146) rotate(-45.000000) translate(-6.014719, -5.843146)"></path>
+																			<path d="M17.9142136,15.4497475 C18.4664983,15.4497475 18.9142136,15.8974627 18.9142136,16.4497475 L18.9142136,18.4497475 C18.9142136,19.0020322 18.4664983,19.4497475 17.9142136,19.4497475 C17.3619288,19.4497475 16.9142136,19.0020322 16.9142136,18.4497475 L16.9142136,16.4497475 C16.9142136,15.8974627 17.3619288,15.4497475 17.9142136,15.4497475 Z M23.4497475,17.1568542 C23.8402718,17.5473785 23.8402718,18.1805435 23.4497475,18.5710678 L22.0355339,19.9852814 C21.6450096,20.3758057 21.0118446,20.3758057 20.6213203,19.9852814 C20.2307961,19.5947571 20.2307961,18.9615921 20.6213203,18.5710678 L22.0355339,17.1568542 C22.4260582,16.76633 23.0592232,16.76633 23.4497475,17.1568542 Z M12.6213203,17.1568542 C13.0118446,16.76633 13.6450096,16.76633 14.0355339,17.1568542 L15.4497475,18.5710678 C15.8402718,18.9615921 15.8402718,19.5947571 15.4497475,19.9852814 C15.0592232,20.3758057 14.4260582,20.3758057 14.0355339,19.9852814 L12.6213203,18.5710678 C12.2307961,18.1805435 12.2307961,17.5473785 12.6213203,17.1568542 Z"
+                                                                                  fill="#000000" opacity="0.3"
+                                                                                  transform="translate(18.035534, 17.863961) scale(1, -1) rotate(45.000000) translate(-18.035534, -17.863961)"></path>
+																		</g>
+																	</svg>
+																</span>
+                                                <!--end::Svg Icon-->
+                                            </div>
+                                        </div>
+                                        <!--end::Timeline icon-->
+                                        <!--begin::Timeline content-->
+                                        <div class="timeline-content mb-10 mt-n1">
+                                            <!--begin::Timeline heading-->
+                                            <div class="mb-5 pe-3">
+                                                <!--begin::Title-->
+                                                <a href="#" class="fs-6 text-gray-800 text-hover-primary mb-2">
+                                                    سه فایل جدید آپلود کرد
+                                                </a>
+                                                <!--end::Title-->
+                                                <!--begin::Description-->
+                                                <div class="d-flex align-items-center mt-1 fs-6">
+                                                    <!--begin::Info-->
+                                                    <div class="text-muted me-2 fs-7"> 10:30</div>
+                                                    <!--end::Info-->
+                                                    <!--begin::User-->
+                                                    <div class="symbol symbol-circle symbol-25px"
+                                                         data-bs-toggle="tooltip" data-bs-boundary="window"
+                                                         data-bs-placement="top" title=""
+                                                         data-bs-original-title="Jan Hummer">
+                                                        <img src="assets/images/150-2.jpg" alt="img">
+                                                    </div>
+                                                    <!--end::User-->
+                                                </div>
+                                                <!--end::Description-->
+                                            </div>
+                                            <!--end::Timeline heading-->
+                                            <!--begin::Timeline details-->
+                                            <div class="overflow-auto pb-5">
+                                                <div class="d-flex align-items-center border border-dashed border-gray-300 rounded min-w-700px p-5">
+                                                    <!--begin::Item-->
+                                                    <div class="d-flex flex-aligns-center pe-5 pe-lg-20">
+                                                        <!--begin::Icon-->
+                                                        <img alt="" class="w-30px me-3" src="assets/images/pdf.svg">
+                                                        <!--end::Icon-->
+                                                        <!--begin::Info-->
+                                                        <div class="ms-1">
+                                                            <!--begin::Desc-->
+                                                            <a href="#" class="fs-6 text-hover-primary">Finance KPI App
+                                                                Guidelines</a>
+                                                            <!--end::Desc-->
+                                                            <!--begin::Number-->
+                                                            <div class="text-gray-400">1.9mb</div>
+                                                            <!--end::Number-->
+                                                        </div>
+                                                        <!--begin::Info-->
+                                                    </div>
+                                                    <!--end::Item-->
+                                                    <!--begin::Item-->
+                                                    <div class="d-flex flex-aligns-center pe-5 pe-lg-20">
+                                                        <!--begin::Icon-->
+                                                        <img alt="" class="w-30px me-3" src="assets/images/doc.svg">
+                                                        <!--end::Icon-->
+                                                        <!--begin::Info-->
+                                                        <div class="ms-1">
+                                                            <!--begin::Desc-->
+                                                            <a href="#" class="fs-6 text-hover-primary">Client UAT
+                                                                Testing Results</a>
+                                                            <!--end::Desc-->
+                                                            <!--begin::Number-->
+                                                            <div class="text-gray-400">18kb</div>
+                                                            <!--end::Number-->
+                                                        </div>
+                                                        <!--end::Info-->
+                                                    </div>
+                                                    <!--end::Item-->
+                                                    <!--begin::Item-->
+                                                    <div class="d-flex flex-aligns-center">
+                                                        <!--begin::Icon-->
+                                                        <img alt="" class="w-30px me-3" src="assets/images/css.svg">
+                                                        <!--end::Icon-->
+                                                        <!--begin::Info-->
+                                                        <div class="ms-1">
+                                                            <!--begin::Desc-->
+                                                            <a href="#" class="fs-6 text-hover-primary">Finance
+                                                                Reports</a>
+                                                            <!--end::Desc-->
+                                                            <!--begin::Number-->
+                                                            <div class="text-gray-400">20mb</div>
+                                                            <!--end::Number-->
+                                                        </div>
+                                                        <!--end::Icon-->
+                                                    </div>
+                                                    <!--end::Item-->
+                                                </div>
+                                            </div>
+                                            <!--end::Timeline details-->
+                                        </div>
+                                        <!--end::Timeline content-->
+                                    </div>
+                                    <!--end::Timeline item-->
+                                    <!--begin::Timeline item-->
+                                    <div class="timeline-item">
+                                        <!--begin::Timeline line-->
+                                        <div class="timeline-line w-40px"></div>
+                                        <!--end::Timeline line-->
+                                        <!--begin::Timeline icon-->
+                                        <div class="timeline-icon symbol symbol-circle symbol-40px">
+                                            <div class="symbol-label bg-light">
+                                                <!--begin::Svg Icon | path: icons/duotone/Home/Library.svg-->
+                                                <span class="svg-icon svg-icon-2 svg-icon-gray-500">
+																	<svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                                                         height="24" viewBox="0 0 24 24" fill="none">
+																		<path opacity="0.25"
+                                                                              d="M3.19406 11.1644C3.09247 10.5549 3.56251 10 4.18045 10H19.8195C20.4375 10 20.9075 10.5549 20.8059 11.1644L19.4178 19.4932C19.1767 20.9398 17.9251 22 16.4586 22H7.54138C6.07486 22 4.82329 20.9398 4.58219 19.4932L3.19406 11.1644Z"
+                                                                              fill="#7E8299"></path>
+																		<path d="M2 9.5C2 8.67157 2.67157 8 3.5 8H20.5C21.3284 8 22 8.67157 22 9.5C22 10.3284 21.3284 11 20.5 11H3.5C2.67157 11 2 10.3284 2 9.5Z"
+                                                                              fill="#7E8299"></path>
+																		<path d="M10 13C9.44772 13 9 13.4477 9 14V18C9 18.5523 9.44772 19 10 19C10.5523 19 11 18.5523 11 18V14C11 13.4477 10.5523 13 10 13Z"
+                                                                              fill="#7E8299"></path>
+																		<path d="M14 13C13.4477 13 13 13.4477 13 14V18C13 18.5523 13.4477 19 14 19C14.5523 19 15 18.5523 15 18V14C15 13.4477 14.5523 13 14 13Z"
+                                                                              fill="#7E8299"></path>
+																		<g opacity="0.25">
+																			<path d="M10.7071 3.70711C11.0976 3.31658 11.0976 2.68342 10.7071 2.29289C10.3166 1.90237 9.68342 1.90237 9.29289 2.29289L4.29289 7.29289C3.90237 7.68342 3.90237 8.31658 4.29289 8.70711C4.68342 9.09763 5.31658 9.09763 5.70711 8.70711L10.7071 3.70711Z"
+                                                                                  fill="#7E8299"></path>
+																			<path d="M13.2929 3.70711C12.9024 3.31658 12.9024 2.68342 13.2929 2.29289C13.6834 1.90237 14.3166 1.90237 14.7071 2.29289L19.7071 7.29289C20.0976 7.68342 20.0976 8.31658 19.7071 8.70711C19.3166 9.09763 18.6834 9.09763 18.2929 8.70711L13.2929 3.70711Z"
+                                                                                  fill="#7E8299"></path>
+																		</g>
+																	</svg>
+																</span>
+                                                <!--end::Svg Icon-->
+                                            </div>
+                                        </div>
+                                        <!--end::Timeline icon-->
+                                        <!--begin::Timeline content-->
+                                        <div class="timeline-content mb-10 mt-n1">
+                                            <!--begin::Timeline heading-->
+                                            <div class="pe-3 mb-5">
+                                                <!--begin::Title-->
+                                                <div class="fs-6 mb-2"> سفارش موفق
+                                                    <a href="#" class="text-primary ms-1">#45890</a>
+
+
+                                                </div>
+                                                <!--end::Title-->
+                                                <!--begin::Description-->
+                                                <div class="d-flex align-items-center mt-1 fs-6">
+                                                    <!--begin::Info-->
+                                                    <div class="text-muted me-2 fs-7">8:14</div>
+                                                    <!--end::Info-->
+                                                    <!--begin::User-->
+                                                    <div class="symbol symbol-circle symbol-25px"
+                                                         data-bs-toggle="tooltip" data-bs-boundary="window"
+                                                         data-bs-placement="top" title=""
+                                                         data-bs-original-title="Nina Nilson">
+                                                        <img src="assets/images/150-2.jpg" alt="img">
+                                                    </div>
+                                                    <!--end::User-->
+                                                </div>
+                                                <!--end::Description-->
+                                            </div>
+                                            <!--end::Timeline heading-->
+                                        </div>
+                                        <!--end::Timeline content-->
+                                    </div>
+                                    <!--end::Timeline item-->
+                                    <!--begin::Timeline item-->
+                                    <div class="timeline-item">
+                                        <!--begin::Timeline line-->
+                                        <div class="timeline-line w-40px"></div>
+                                        <!--end::Timeline line-->
+                                        <!--begin::Timeline icon-->
+                                        <div class="timeline-icon symbol symbol-circle symbol-40px me-4">
+                                            <div class="symbol-label bg-light">
+                                                <!--begin::Svg Icon | path: icons/duotone/Communication/Chat2.svg-->
+                                                <span class="svg-icon svg-icon-2 svg-icon-gray-500">
+																	<svg xmlns="http://www.w3.org/2000/svg" width="24px"
+                                                                         height="24px" viewBox="0 0 24 24"
+                                                                         version="1.1">
+																		<path d="M12.7037037,14 L15.6666667,10 L13.4444444,10 L13.4444444,6 L9,12 L11.2222222,12 L11.2222222,14 L6,14 C5.44771525,14 5,13.5522847 5,13 L5,3 C5,2.44771525 5.44771525,2 6,2 L18,2 C18.5522847,2 19,2.44771525 19,3 L19,13 C19,13.5522847 18.5522847,14 18,14 L12.7037037,14 Z"
+                                                                              fill="#000000" opacity="0.3"></path>
+																		<path d="M9.80428954,10.9142091 L9,12 L11.2222222,12 L11.2222222,16 L15.6666667,10 L15.4615385,10 L20.2072547,6.57253826 C20.4311176,6.4108595 20.7436609,6.46126971 20.9053396,6.68513259 C20.9668779,6.77033951 21,6.87277228 21,6.97787787 L21,17 C21,18.1045695 20.1045695,19 19,19 L5,19 C3.8954305,19 3,18.1045695 3,17 L3,6.97787787 C3,6.70173549 3.22385763,6.47787787 3.5,6.47787787 C3.60510559,6.47787787 3.70753836,6.51099993 3.79274528,6.57253826 L9.80428954,10.9142091 Z"
+                                                                              fill="#000000"></path>
+																	</svg>
+																</span>
+                                                <!--end::Svg Icon-->
+                                            </div>
+                                        </div>
+                                        <!--end::Timeline icon-->
+                                        <!--begin::Timeline content-->
+                                        <div class="timeline-content mb-10 mt-n1">
+                                            <!--begin::Timeline heading-->
+                                            <div class="pe-3 mb-5">
+                                                <!--begin::Title-->
+                                                <div class="fs-6 mb-2">
+                                                    یک جلسه جدید منتشر کرد
+                                                </div>
+                                                <!--end::Title-->
+                                                <!--begin::Description-->
+                                                <div class="d-flex align-items-center mt-1 fs-6">
+                                                    <!--begin::Info-->
+                                                    <div class="text-muted me-2 fs-7"> 4:23</div>
+                                                    <!--end::Info-->
+                                                    <!--begin::User-->
+                                                    <div class="symbol symbol-circle symbol-25px"
+                                                         data-bs-toggle="tooltip" data-bs-boundary="window"
+                                                         data-bs-placement="top" title=""
+                                                         data-bs-original-title="Nina Nilson">
+                                                        <img src="assets/images/150-2.jpg" alt="img">
+                                                    </div>
+                                                    <!--end::User-->
+                                                </div>
+                                                <!--end::Description-->
+                                            </div>
+                                            <!--end::Timeline heading-->
+                                            <!--begin::Timeline details-->
+                                            <div class="overflow-auto pb-5">
+                                                <!--begin::Record-->
+                                                <div class="d-flex align-items-center justify-content-between border border-dashed border-gray-300 rounded min-w-750px px-3 py-3 mb-5">
+                                                    <!--begin::Title-->
+                                                    <a href="#"
+                                                       class="fs-6 text-dark text-hover-primary w-100px min-w-100px">پلاگین
+                                                        ها</a>
+                                                    <!--end::Title-->
+                                                    <!--begin::Label-->
+                                                    <div class="min-w-175px pe-2">
+                                                        <span class="badge badge-light text-muted">استفاده از پکیج ها</span>
+                                                    </div>
+                                                    <!--end::Label-->
+
+                                                    <!--begin::Progress-->
+                                                    <div class="min-w-125px pe-2">
+                                                        <span class="badge badge-light-success">تایید شده</span>
+                                                    </div>
+                                                    <!--end::Progress-->
+                                                    <!--begin::Action-->
+                                                    <a href="#" class="btn btn-sm btn-light btn-active-light-primary">مشاهده</a>
+                                                    <!--end::Action-->
+                                                </div>
+                                                <!--end::Record-->
+                                            </div>
+                                            <!--end::Timeline details-->
+                                        </div>
+                                        <!--end::Timeline content-->
+                                    </div>
+                                    <!--end::Timeline item-->
+                                    <!--begin::Timeline item-->
+                                    <div class="timeline-item">
+                                        <!--begin::Timeline line-->
+                                        <div class="timeline-line w-40px"></div>
+                                        <!--end::Timeline line-->
+                                        <!--begin::Timeline icon-->
+                                        <div class="timeline-icon symbol symbol-circle symbol-40px">
+                                            <div class="symbol-label bg-light">
+                                                <!--begin::Svg Icon | path: icons/duotone/Communication/Write.svg-->
+                                                <span class="svg-icon svg-icon-2 svg-icon-gray-500">
+																	<svg xmlns="http://www.w3.org/2000/svg" width="24px"
+                                                                         height="24px" viewBox="0 0 24 24"
+                                                                         version="1.1">
+																		<path d="M11.6734943,8.3307728 L14.9993074,6.09979492 L14.1213255,5.22181303 C13.7308012,4.83128874 13.7308012,4.19812376 14.1213255,3.80759947 L15.535539,2.39338591 C15.9260633,2.00286161 16.5592283,2.00286161 16.9497526,2.39338591 L22.6066068,8.05024016 C22.9971311,8.44076445 22.9971311,9.07392943 22.6066068,9.46445372 L21.1923933,10.8786673 C20.801869,11.2691916 20.168704,11.2691916 19.7781797,10.8786673 L18.9002333,10.0007208 L16.6692373,13.3265608 C16.9264145,14.2523264 16.9984943,15.2320236 16.8664372,16.2092466 L16.4344698,19.4058049 C16.360509,19.9531149 15.8568695,20.3368403 15.3095595,20.2628795 C15.0925691,20.2335564 14.8912006,20.1338238 14.7363706,19.9789938 L5.02099894,10.2636221 C4.63047465,9.87309784 4.63047465,9.23993286 5.02099894,8.84940857 C5.17582897,8.69457854 5.37719743,8.59484594 5.59418783,8.56552292 L8.79074617,8.13355557 C9.76799113,8.00149544 10.7477104,8.0735815 11.6734943,8.3307728 Z"
+                                                                              fill="#000000"></path>
+																		<polygon fill="#000000" opacity="0.3"
+                                                                                 transform="translate(7.050253, 17.949747) rotate(-315.000000) translate(-7.050253, -17.949747)"
+                                                                                 points="5.55025253 13.9497475 5.55025253 19.6640332 7.05025253 21.9497475 8.55025253 19.6640332 8.55025253 13.9497475"></polygon>
+																	</svg>
+																</span>
+                                                <!--end::Svg Icon-->
+                                            </div>
+                                        </div>
+                                        <!--end::Timeline icon-->
+                                        <!--begin::Timeline content-->
+                                        <div class="timeline-content mb-10 mt-n1">
+                                            <!--begin::Timeline heading-->
+                                            <div class="pe-3 mb-5">
+                                                <!--begin::Title-->
+                                                <div class="fs-6 mb-2">یک مقاله جدید منتشر کرد</div>
+                                                <!--end::Title-->
+                                                <!--begin::Description-->
+                                                <div class="d-flex align-items-center mt-1 fs-6">
+                                                    <!--begin::Info-->
+                                                    <div class="text-muted me-2 fs-7"> 18:25</div>
+                                                    <!--end::Info-->
+                                                    <!--begin::User-->
+                                                    <div class="symbol symbol-circle symbol-25px"
+                                                         data-bs-toggle="tooltip" data-bs-boundary="window"
+                                                         data-bs-placement="top" title=""
+                                                         data-bs-original-title="Marcus Dotson">
+                                                        <img src="assets/images/150-2.jpg" alt="img">
+                                                    </div>
+                                                    <!--end::User-->
+                                                </div>
+                                                <!--end::Description-->
+                                            </div>
+                                            <!--end::Timeline heading-->
+                                            <!--begin::Timeline details-->
+                                            <!--begin::Timeline details-->
+                                            <div class="overflow-auto pb-5">
+                                                <!--begin::Record-->
+                                                <div class="d-flex align-items-center justify-content-between border border-dashed border-gray-300 rounded min-w-750px px-3 py-3 mb-5">
+                                                    <!--begin::Title-->
+                                                    <a href="#"
+                                                       class="fs-6 text-dark text-hover-primary min-w-100px">
+                                                        تفاوت react.js و vue.js
+                                                    </a>
+                                                    <!--end::Title-->
+                                                    <!--begin::Label-->
+                                                    <div class="min-w-175px pe-2">
+                                                        <span class="badge badge-light text-muted">وب سایت</span>
+                                                    </div>
+                                                    <!--end::Label-->
+
+                                                    <!--begin::Progress-->
+                                                    <div class="min-w-125px pe-2">
+                                                        <span class="badge badge-light-success">تایید شده</span>
+                                                    </div>
+                                                    <!--end::Progress-->
+                                                    <!--begin::Action-->
+                                                    <a href="#" class="btn btn-sm btn-light btn-active-light-primary">مشاهده</a>
+                                                    <!--end::Action-->
+                                                </div>
+                                                <!--end::Record-->
+                                            </div>
+                                            <!--end::Timeline details-->
+                                            <!--end::Timeline details-->
+                                        </div>
+                                        <!--end::Timeline content-->
+                                    </div>
+                                    <!--end::Timeline item-->
+                                    <!--begin::Timeline item-->
+                                    <div class="timeline-item">
+                                        <!--begin::Timeline line-->
+                                        <div class="timeline-line w-40px"></div>
+                                        <!--end::Timeline line-->
+                                        <!--begin::Timeline icon-->
+                                        <div class="timeline-icon symbol symbol-circle symbol-40px">
+                                            <div class="symbol-label bg-light">
+                                                <!--begin::Svg Icon | path: icons/duotone/Communication/Write.svg-->
+                                                <span class="svg-icon svg-icon-2 svg-icon-gray-500">
+																	<svg xmlns="http://www.w3.org/2000/svg" width="24px"
+                                                                         height="24px" viewBox="0 0 24 24"
+                                                                         version="1.1">
+																		<path d="M12.2674799,18.2323597 L12.0084872,5.45852451 C12.0004303,5.06114792 12.1504154,4.6768183 12.4255037,4.38993949 L15.0030167,1.70195304 L17.5910752,4.40093695 C17.8599071,4.6812911 18.0095067,5.05499603 18.0083938,5.44341307 L17.9718262,18.2062508 C17.9694575,19.0329966 17.2985816,19.701953 16.4718324,19.701953 L13.7671717,19.701953 C12.9505952,19.701953 12.2840328,19.0487684 12.2674799,18.2323597 Z"
+                                                                              fill="#000000" fill-rule="nonzero"
+                                                                              transform="translate(14.701953, 10.701953) rotate(-135.000000) translate(-14.701953, -10.701953)"></path>
+																		<path d="M12.9,2 C13.4522847,2 13.9,2.44771525 13.9,3 C13.9,3.55228475 13.4522847,4 12.9,4 L6,4 C4.8954305,4 4,4.8954305 4,6 L4,18 C4,19.1045695 4.8954305,20 6,20 L18,20 C19.1045695,20 20,19.1045695 20,18 L20,13 C20,12.4477153 20.4477153,12 21,12 C21.5522847,12 22,12.4477153 22,13 L22,18 C22,20.209139 20.209139,22 18,22 L6,22 C3.790861,22 2,20.209139 2,18 L2,6 C2,3.790861 3.790861,2 6,2 L12.9,2 Z"
+                                                                              fill="#000000" fill-rule="nonzero"
+                                                                              opacity="0.3"></path>
+																	</svg>
+																</span>
+                                                <!--end::Svg Icon-->
+                                            </div>
+                                        </div>
+                                        <!--end::Timeline icon-->
+                                        <!--begin::Timeline content-->
+                                        <div class="timeline-content mb-10 mt-n1">
+                                            <!--begin::Timeline heading-->
+                                            <div class="pe-3 mb-5">
+                                                <!--begin::Title-->
+                                                <div class="fs-6 mb-2">ثبت یک درخواست تسویه جدید</div>
+                                                <!--end::Title-->
+                                                <!--begin::Description-->
+                                                <div class="d-flex align-items-center mt-1 fs-6">
+                                                    <!--begin::Info-->
+                                                    <div class="text-muted me-2 fs-7">22:22</div>
+                                                    <!--end::Info-->
+                                                    <!--begin::User-->
+                                                    <div class="symbol symbol-circle symbol-25px"
+                                                         data-bs-toggle="tooltip" data-bs-boundary="window"
+                                                         data-bs-placement="top" title=""
+                                                         data-bs-original-title="Robert Rich">
+                                                        <img src="assets/images/150-11.jpg" alt="img">
+                                                    </div>
+                                                    <!--end::User-->
+                                                </div>
+                                                <!--end::Description-->
+                                            </div>
+                                            <!--end::Timeline heading-->
+                                            <!--begin::Timeline details-->
+                                            <div class="overflow-auto pb-5">
+                                                <!--begin::Notice-->
+                                                <div class="notice d-flex bg-light-primary rounded border-primary border border-dashed min-w-lg-600px flex-shrink-0 p-5">
+                                                    <!--begin::Icon-->
+                                                    <!--begin::Svg Icon | path: icons/duotone/Code/Git4.svg-->
+                                                    <span class="svg-icon svg-icon-2tx svg-icon-primary me-4">
+																		<svg xmlns="http://www.w3.org/2000/svg"
+                                                                             width="24px" height="24px"
+                                                                             viewBox="0 0 24 24" version="1.1">
+																			<path d="M6,7 C7.1045695,7 8,6.1045695 8,5 C8,3.8954305 7.1045695,3 6,3 C4.8954305,3 4,3.8954305 4,5 C4,6.1045695 4.8954305,7 6,7 Z M6,9 C3.790861,9 2,7.209139 2,5 C2,2.790861 3.790861,1 6,1 C8.209139,1 10,2.790861 10,5 C10,7.209139 8.209139,9 6,9 Z"
+                                                                                  fill="#000000"
+                                                                                  fill-rule="nonzero"></path>
+																			<path d="M7,11.4648712 L7,17 C7,18.1045695 7.8954305,19 9,19 L15,19 L15,21 L9,21 C6.790861,21 5,19.209139 5,17 L5,8 L5,7 L7,7 L7,8 C7,9.1045695 7.8954305,10 9,10 L15,10 L15,12 L9,12 C8.27142571,12 7.58834673,11.8052114 7,11.4648712 Z"
+                                                                                  fill="#000000" fill-rule="nonzero"
+                                                                                  opacity="0.3"></path>
+																			<path d="M18,22 C19.1045695,22 20,21.1045695 20,20 C20,18.8954305 19.1045695,18 18,18 C16.8954305,18 16,18.8954305 16,20 C16,21.1045695 16.8954305,22 18,22 Z M18,24 C15.790861,24 14,22.209139 14,20 C14,17.790861 15.790861,16 18,16 C20.209139,16 22,17.790861 22,20 C22,22.209139 20.209139,24 18,24 Z"
+                                                                                  fill="#000000"
+                                                                                  fill-rule="nonzero"></path>
+																			<path d="M18,13 C19.1045695,13 20,12.1045695 20,11 C20,9.8954305 19.1045695,9 18,9 C16.8954305,9 16,9.8954305 16,11 C16,12.1045695 16.8954305,13 18,13 Z M18,15 C15.790861,15 14,13.209139 14,11 C14,8.790861 15.790861,7 18,7 C20.209139,7 22,8.790861 22,11 C22,13.209139 20.209139,15 18,15 Z"
+                                                                                  fill="#000000"
+                                                                                  fill-rule="nonzero"></path>
+																		</svg>
+																	</span>
+                                                    <!--end::Svg Icon-->
+                                                    <!--end::Icon-->
+                                                    <!--begin::Wrapper-->
+                                                    <div class="d-flex flex-stack flex-grow-1 flex-wrap flex-md-nowrap">
+                                                        <!--begin::Content-->
+                                                        <div class="mb-3 mb-md-0">
+                                                            <h4 class="text-gray-800">
+                                                                درخواست تسویه
+                                                            </h4>
+                                                            <div class="fs-6 text-gray-600 pe-7">
+                                                                750,000 تومان
+                                                            </div>
+                                                        </div>
+                                                        <!--end::Content-->
+                                                        <!--begin::Action-->
+                                                        <a href="#"
+                                                           class="btn btn-primary px-6 align-self-center text-nowrap">تسویه</a>
+                                                        <!--end::Action-->
+                                                    </div>
+                                                    <!--end::Wrapper-->
+                                                </div>
+                                                <!--end::Notice-->
+                                            </div>
+                                            <!--end::Timeline details-->
+                                        </div>
+                                        <!--end::Timeline content-->
+                                    </div>
+                                    <!--end::Timeline item-->
+                                </div>
+                                <!--end::Timeline-->
+                            </div>
+                            <!--end::Tab panel-->
+                            <!--begin::Tab panel-->
+                            <div id="kt_activity_year" class="card-body p-0 tab-pane fade show" role="tabpanel"
+                                 aria-labelledby="kt_activity_today_tab">
+                                <!--begin::Timeline-->
+                                <div class="timeline">
+                                    <!--begin::Timeline item-->
+                                    <div class="timeline-item">
+                                        <!--begin::Timeline line-->
+                                        <div class="timeline-line w-40px"></div>
+                                        <!--end::Timeline line-->
+                                        <!--begin::Timeline icon-->
+                                        <div class="timeline-icon symbol symbol-circle symbol-40px me-4">
+                                            <div class="symbol-label bg-light">
+                                                <!--begin::Svg Icon | path: icons/duotone/Communication/Chat2.svg-->
+                                                <span class="svg-icon svg-icon-2 svg-icon-gray-500">
+																	<svg xmlns="http://www.w3.org/2000/svg" width="24px"
+                                                                         height="24px" viewBox="0 0 24 24"
+                                                                         version="1.1">
+																		<polygon fill="#000000" opacity="0.3"
+                                                                                 points="5 15 3 21.5 9.5 19.5"></polygon>
+																		<path d="M13.5,21 C8.25329488,21 4,16.7467051 4,11.5 C4,6.25329488 8.25329488,2 13.5,2 C18.7467051,2 23,6.25329488 23,11.5 C23,16.7467051 18.7467051,21 13.5,21 Z M9,8 C8.44771525,8 8,8.44771525 8,9 C8,9.55228475 8.44771525,10 9,10 L18,10 C18.5522847,10 19,9.55228475 19,9 C19,8.44771525 18.5522847,8 18,8 L9,8 Z M9,12 C8.44771525,12 8,12.4477153 8,13 C8,13.5522847 8.44771525,14 9,14 L14,14 C14.5522847,14 15,13.5522847 15,13 C15,12.4477153 14.5522847,12 14,12 L9,12 Z"
+                                                                              fill="#000000"></path>
+																	</svg>
+																</span>
+                                                <!--end::Svg Icon-->
+                                            </div>
+                                        </div>
+                                        <!--end::Timeline icon-->
+                                        <!--begin::Timeline content-->
+                                        <div class="timeline-content mb-10 mt-n1">
+                                            <!--begin::Timeline heading-->
+                                            <div class="pe-3 mb-5">
+                                                <!--begin::Title-->
+                                                <div class="fs-6 mb-2">
+                                                    ثبت یک تیکت پشتیبانی
+                                                </div>
+                                                <!--end::Title-->
+                                                <!--begin::Description-->
+                                                <div class="d-flex align-items-center mt-1 fs-6">
+                                                    <!--begin::Info-->
+                                                    <div class="text-muted me-2 fs-7"> 4:23</div>
+                                                    <!--end::Info-->
+                                                    <!--begin::User-->
+                                                    <div class="symbol symbol-circle symbol-25px"
+                                                         data-bs-toggle="tooltip" data-bs-boundary="window"
+                                                         data-bs-placement="top" title=""
+                                                         data-bs-original-title="Nina Nilson">
+                                                        <img src="assets/images/150-2.jpg" alt="img">
+                                                    </div>
+                                                    <!--end::User-->
+                                                </div>
+                                                <!--end::Description-->
+                                            </div>
+                                            <!--end::Timeline heading-->
+                                            <!--begin::Timeline details-->
+                                            <div class="overflow-auto pb-5">
+                                                <!--begin::Record-->
+                                                <div class="d-flex align-items-center justify-content-between border border-dashed border-gray-300 rounded min-w-750px px-3 py-3 mb-5">
+                                                    <!--begin::Title-->
+                                                    <a href="#"
+                                                       class="fs-6 text-dark text-hover-primary min-w-200px">مشکل
+                                                        فنی در خرید دوره</a>
+                                                    <!--end::Title-->
+                                                    <!--begin::Label-->
+                                                    <div class="min-w-175px pe-2">
+                                                        <span class="badge badge-light text-muted">مشکل فنی</span>
+                                                    </div>
+                                                    <!--end::Label-->
+
+                                                    <!--begin::Progress-->
+                                                    <div class="min-w-125px pe-2">
+                                                        <span class="badge badge-light-primary">در حال انتظار</span>
+                                                    </div>
+                                                    <!--end::Progress-->
+                                                    <!--begin::Action-->
+                                                    <a href="#" class="btn btn-sm btn-light btn-active-light-primary">مشاهده</a>
+                                                    <!--end::Action-->
+                                                </div>
+                                                <!--end::Record-->
+                                            </div>
+                                            <!--end::Timeline details-->
+                                        </div>
+                                        <!--end::Timeline content-->
+                                    </div>
+                                    <!--end::Timeline item-->
+                                    <!--begin::Timeline item-->
+                                    <div class="timeline-item">
+                                        <!--begin::Timeline line-->
+                                        <div class="timeline-line w-40px"></div>
+                                        <!--end::Timeline line-->
+                                        <!--begin::Timeline icon-->
+                                        <div class="timeline-icon symbol symbol-circle symbol-40px">
+                                            <div class="symbol-label bg-light">
+                                                <!--begin::Svg Icon | path: icons/duotone/General/Attachment2.svg-->
+                                                <span class="svg-icon svg-icon-2 svg-icon-gray-500">
+																	<svg xmlns="http://www.w3.org/2000/svg"
+                                                                         xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                                         width="24px" height="24px" viewBox="0 0 24 24"
+                                                                         version="1.1">
+																		<g stroke="none" stroke-width="1" fill="none"
+                                                                           fill-rule="evenodd">
+																			<rect x="0" y="0" width="24"
+                                                                                  height="24"></rect>
+																			<path d="M11.7573593,15.2426407 L8.75735931,15.2426407 C8.20507456,15.2426407 7.75735931,15.6903559 7.75735931,16.2426407 C7.75735931,16.7949254 8.20507456,17.2426407 8.75735931,17.2426407 L11.7573593,17.2426407 L11.7573593,18.2426407 C11.7573593,19.3472102 10.8619288,20.2426407 9.75735931,20.2426407 L5.75735931,20.2426407 C4.65278981,20.2426407 3.75735931,19.3472102 3.75735931,18.2426407 L3.75735931,14.2426407 C3.75735931,13.1380712 4.65278981,12.2426407 5.75735931,12.2426407 L9.75735931,12.2426407 C10.8619288,12.2426407 11.7573593,13.1380712 11.7573593,14.2426407 L11.7573593,15.2426407 Z"
+                                                                                  fill="#000000" opacity="0.3"
+                                                                                  transform="translate(7.757359, 16.242641) rotate(-45.000000) translate(-7.757359, -16.242641)"></path>
+																			<path d="M12.2426407,8.75735931 L15.2426407,8.75735931 C15.7949254,8.75735931 16.2426407,8.30964406 16.2426407,7.75735931 C16.2426407,7.20507456 15.7949254,6.75735931 15.2426407,6.75735931 L12.2426407,6.75735931 L12.2426407,5.75735931 C12.2426407,4.65278981 13.1380712,3.75735931 14.2426407,3.75735931 L18.2426407,3.75735931 C19.3472102,3.75735931 20.2426407,4.65278981 20.2426407,5.75735931 L20.2426407,9.75735931 C20.2426407,10.8619288 19.3472102,11.7573593 18.2426407,11.7573593 L14.2426407,11.7573593 C13.1380712,11.7573593 12.2426407,10.8619288 12.2426407,9.75735931 L12.2426407,8.75735931 Z"
+                                                                                  fill="#000000"
+                                                                                  transform="translate(16.242641, 7.757359) rotate(-45.000000) translate(-16.242641, -7.757359)"></path>
+																			<path d="M5.89339828,3.42893219 C6.44568303,3.42893219 6.89339828,3.87664744 6.89339828,4.42893219 L6.89339828,6.42893219 C6.89339828,6.98121694 6.44568303,7.42893219 5.89339828,7.42893219 C5.34111353,7.42893219 4.89339828,6.98121694 4.89339828,6.42893219 L4.89339828,4.42893219 C4.89339828,3.87664744 5.34111353,3.42893219 5.89339828,3.42893219 Z M11.4289322,5.13603897 C11.8194565,5.52656326 11.8194565,6.15972824 11.4289322,6.55025253 L10.0147186,7.96446609 C9.62419433,8.35499039 8.99102936,8.35499039 8.60050506,7.96446609 C8.20998077,7.5739418 8.20998077,6.94077682 8.60050506,6.55025253 L10.0147186,5.13603897 C10.4052429,4.74551468 11.0384079,4.74551468 11.4289322,5.13603897 Z M0.600505063,5.13603897 C0.991029355,4.74551468 1.62419433,4.74551468 2.01471863,5.13603897 L3.42893219,6.55025253 C3.81945648,6.94077682 3.81945648,7.5739418 3.42893219,7.96446609 C3.0384079,8.35499039 2.40524292,8.35499039 2.01471863,7.96446609 L0.600505063,6.55025253 C0.209980772,6.15972824 0.209980772,5.52656326 0.600505063,5.13603897 Z"
+                                                                                  fill="#000000" opacity="0.3"
+                                                                                  transform="translate(6.014719, 5.843146) rotate(-45.000000) translate(-6.014719, -5.843146)"></path>
+																			<path d="M17.9142136,15.4497475 C18.4664983,15.4497475 18.9142136,15.8974627 18.9142136,16.4497475 L18.9142136,18.4497475 C18.9142136,19.0020322 18.4664983,19.4497475 17.9142136,19.4497475 C17.3619288,19.4497475 16.9142136,19.0020322 16.9142136,18.4497475 L16.9142136,16.4497475 C16.9142136,15.8974627 17.3619288,15.4497475 17.9142136,15.4497475 Z M23.4497475,17.1568542 C23.8402718,17.5473785 23.8402718,18.1805435 23.4497475,18.5710678 L22.0355339,19.9852814 C21.6450096,20.3758057 21.0118446,20.3758057 20.6213203,19.9852814 C20.2307961,19.5947571 20.2307961,18.9615921 20.6213203,18.5710678 L22.0355339,17.1568542 C22.4260582,16.76633 23.0592232,16.76633 23.4497475,17.1568542 Z M12.6213203,17.1568542 C13.0118446,16.76633 13.6450096,16.76633 14.0355339,17.1568542 L15.4497475,18.5710678 C15.8402718,18.9615921 15.8402718,19.5947571 15.4497475,19.9852814 C15.0592232,20.3758057 14.4260582,20.3758057 14.0355339,19.9852814 L12.6213203,18.5710678 C12.2307961,18.1805435 12.2307961,17.5473785 12.6213203,17.1568542 Z"
+                                                                                  fill="#000000" opacity="0.3"
+                                                                                  transform="translate(18.035534, 17.863961) scale(1, -1) rotate(45.000000) translate(-18.035534, -17.863961)"></path>
+																		</g>
+																	</svg>
+																</span>
+                                                <!--end::Svg Icon-->
+                                            </div>
+                                        </div>
+                                        <!--end::Timeline icon-->
+                                        <!--begin::Timeline content-->
+                                        <div class="timeline-content mb-10 mt-n1">
+                                            <!--begin::Timeline heading-->
+                                            <div class="mb-5 pe-3">
+                                                <!--begin::Title-->
+                                                <a href="#" class="fs-6 text-gray-800 text-hover-primary mb-2">
+                                                    سه فایل جدید آپلود کرد
+                                                </a>
+                                                <!--end::Title-->
+                                                <!--begin::Description-->
+                                                <div class="d-flex align-items-center mt-1 fs-6">
+                                                    <!--begin::Info-->
+                                                    <div class="text-muted me-2 fs-7"> 10:30</div>
+                                                    <!--end::Info-->
+                                                    <!--begin::User-->
+                                                    <div class="symbol symbol-circle symbol-25px"
+                                                         data-bs-toggle="tooltip" data-bs-boundary="window"
+                                                         data-bs-placement="top" title=""
+                                                         data-bs-original-title="Jan Hummer">
+                                                        <img src="assets/images/150-2.jpg" alt="img">
+                                                    </div>
+                                                    <!--end::User-->
+                                                </div>
+                                                <!--end::Description-->
+                                            </div>
+                                            <!--end::Timeline heading-->
+                                            <!--begin::Timeline details-->
+                                            <div class="overflow-auto pb-5">
+                                                <div class="d-flex align-items-center border border-dashed border-gray-300 rounded min-w-700px p-5">
+                                                    <!--begin::Item-->
+                                                    <div class="d-flex flex-aligns-center pe-5 pe-lg-20">
+                                                        <!--begin::Icon-->
+                                                        <img alt="" class="w-30px me-3" src="assets/images/pdf.svg">
+                                                        <!--end::Icon-->
+                                                        <!--begin::Info-->
+                                                        <div class="ms-1">
+                                                            <!--begin::Desc-->
+                                                            <a href="#" class="fs-6 text-hover-primary">Finance KPI App
+                                                                Guidelines</a>
+                                                            <!--end::Desc-->
+                                                            <!--begin::Number-->
+                                                            <div class="text-gray-400">1.9mb</div>
+                                                            <!--end::Number-->
+                                                        </div>
+                                                        <!--begin::Info-->
+                                                    </div>
+                                                    <!--end::Item-->
+                                                    <!--begin::Item-->
+                                                    <div class="d-flex flex-aligns-center pe-5 pe-lg-20">
+                                                        <!--begin::Icon-->
+                                                        <img alt="" class="w-30px me-3" src="assets/images/doc.svg">
+                                                        <!--end::Icon-->
+                                                        <!--begin::Info-->
+                                                        <div class="ms-1">
+                                                            <!--begin::Desc-->
+                                                            <a href="#" class="fs-6 text-hover-primary">Client UAT
+                                                                Testing Results</a>
+                                                            <!--end::Desc-->
+                                                            <!--begin::Number-->
+                                                            <div class="text-gray-400">18kb</div>
+                                                            <!--end::Number-->
+                                                        </div>
+                                                        <!--end::Info-->
+                                                    </div>
+                                                    <!--end::Item-->
+                                                    <!--begin::Item-->
+                                                    <div class="d-flex flex-aligns-center">
+                                                        <!--begin::Icon-->
+                                                        <img alt="" class="w-30px me-3" src="assets/images/css.svg">
+                                                        <!--end::Icon-->
+                                                        <!--begin::Info-->
+                                                        <div class="ms-1">
+                                                            <!--begin::Desc-->
+                                                            <a href="#" class="fs-6 text-hover-primary">Finance
+                                                                Reports</a>
+                                                            <!--end::Desc-->
+                                                            <!--begin::Number-->
+                                                            <div class="text-gray-400">20mb</div>
+                                                            <!--end::Number-->
+                                                        </div>
+                                                        <!--end::Icon-->
+                                                    </div>
+                                                    <!--end::Item-->
+                                                </div>
+                                            </div>
+                                            <!--end::Timeline details-->
+                                        </div>
+                                        <!--end::Timeline content-->
+                                    </div>
+                                    <!--end::Timeline item-->
+                                    <!--begin::Timeline item-->
+                                    <div class="timeline-item">
+                                        <!--begin::Timeline line-->
+                                        <div class="timeline-line w-40px"></div>
+                                        <!--end::Timeline line-->
+                                        <!--begin::Timeline icon-->
+                                        <div class="timeline-icon symbol symbol-circle symbol-40px">
+                                            <div class="symbol-label bg-light">
+                                                <!--begin::Svg Icon | path: icons/duotone/Home/Library.svg-->
+                                                <span class="svg-icon svg-icon-2 svg-icon-gray-500">
+																	<svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                                                         height="24" viewBox="0 0 24 24" fill="none">
+																		<path opacity="0.25"
+                                                                              d="M3.19406 11.1644C3.09247 10.5549 3.56251 10 4.18045 10H19.8195C20.4375 10 20.9075 10.5549 20.8059 11.1644L19.4178 19.4932C19.1767 20.9398 17.9251 22 16.4586 22H7.54138C6.07486 22 4.82329 20.9398 4.58219 19.4932L3.19406 11.1644Z"
+                                                                              fill="#7E8299"></path>
+																		<path d="M2 9.5C2 8.67157 2.67157 8 3.5 8H20.5C21.3284 8 22 8.67157 22 9.5C22 10.3284 21.3284 11 20.5 11H3.5C2.67157 11 2 10.3284 2 9.5Z"
+                                                                              fill="#7E8299"></path>
+																		<path d="M10 13C9.44772 13 9 13.4477 9 14V18C9 18.5523 9.44772 19 10 19C10.5523 19 11 18.5523 11 18V14C11 13.4477 10.5523 13 10 13Z"
+                                                                              fill="#7E8299"></path>
+																		<path d="M14 13C13.4477 13 13 13.4477 13 14V18C13 18.5523 13.4477 19 14 19C14.5523 19 15 18.5523 15 18V14C15 13.4477 14.5523 13 14 13Z"
+                                                                              fill="#7E8299"></path>
+																		<g opacity="0.25">
+																			<path d="M10.7071 3.70711C11.0976 3.31658 11.0976 2.68342 10.7071 2.29289C10.3166 1.90237 9.68342 1.90237 9.29289 2.29289L4.29289 7.29289C3.90237 7.68342 3.90237 8.31658 4.29289 8.70711C4.68342 9.09763 5.31658 9.09763 5.70711 8.70711L10.7071 3.70711Z"
+                                                                                  fill="#7E8299"></path>
+																			<path d="M13.2929 3.70711C12.9024 3.31658 12.9024 2.68342 13.2929 2.29289C13.6834 1.90237 14.3166 1.90237 14.7071 2.29289L19.7071 7.29289C20.0976 7.68342 20.0976 8.31658 19.7071 8.70711C19.3166 9.09763 18.6834 9.09763 18.2929 8.70711L13.2929 3.70711Z"
+                                                                                  fill="#7E8299"></path>
+																		</g>
+																	</svg>
+																</span>
+                                                <!--end::Svg Icon-->
+                                            </div>
+                                        </div>
+                                        <!--end::Timeline icon-->
+                                        <!--begin::Timeline content-->
+                                        <div class="timeline-content mb-10 mt-n1">
+                                            <!--begin::Timeline heading-->
+                                            <div class="pe-3 mb-5">
+                                                <!--begin::Title-->
+                                                <div class="fs-6 mb-2"> سفارش موفق
+                                                    <a href="#" class="text-primary ms-1">#45890</a>
+
+
+                                                </div>
+                                                <!--end::Title-->
+                                                <!--begin::Description-->
+                                                <div class="d-flex align-items-center mt-1 fs-6">
+                                                    <!--begin::Info-->
+                                                    <div class="text-muted me-2 fs-7">8:14</div>
+                                                    <!--end::Info-->
+                                                    <!--begin::User-->
+                                                    <div class="symbol symbol-circle symbol-25px"
+                                                         data-bs-toggle="tooltip" data-bs-boundary="window"
+                                                         data-bs-placement="top" title=""
+                                                         data-bs-original-title="Nina Nilson">
+                                                        <img src="assets/images/150-2.jpg" alt="img">
+                                                    </div>
+                                                    <!--end::User-->
+                                                </div>
+                                                <!--end::Description-->
+                                            </div>
+                                            <!--end::Timeline heading-->
+                                        </div>
+                                        <!--end::Timeline content-->
+                                    </div>
+                                    <!--end::Timeline item-->
+                                    <!--begin::Timeline item-->
+                                    <div class="timeline-item">
+                                        <!--begin::Timeline line-->
+                                        <div class="timeline-line w-40px"></div>
+                                        <!--end::Timeline line-->
+                                        <!--begin::Timeline icon-->
+                                        <div class="timeline-icon symbol symbol-circle symbol-40px me-4">
+                                            <div class="symbol-label bg-light">
+                                                <!--begin::Svg Icon | path: icons/duotone/Communication/Chat2.svg-->
+                                                <span class="svg-icon svg-icon-2 svg-icon-gray-500">
+																	<svg xmlns="http://www.w3.org/2000/svg" width="24px"
+                                                                         height="24px" viewBox="0 0 24 24"
+                                                                         version="1.1">
+																		<path d="M12.7037037,14 L15.6666667,10 L13.4444444,10 L13.4444444,6 L9,12 L11.2222222,12 L11.2222222,14 L6,14 C5.44771525,14 5,13.5522847 5,13 L5,3 C5,2.44771525 5.44771525,2 6,2 L18,2 C18.5522847,2 19,2.44771525 19,3 L19,13 C19,13.5522847 18.5522847,14 18,14 L12.7037037,14 Z"
+                                                                              fill="#000000" opacity="0.3"></path>
+																		<path d="M9.80428954,10.9142091 L9,12 L11.2222222,12 L11.2222222,16 L15.6666667,10 L15.4615385,10 L20.2072547,6.57253826 C20.4311176,6.4108595 20.7436609,6.46126971 20.9053396,6.68513259 C20.9668779,6.77033951 21,6.87277228 21,6.97787787 L21,17 C21,18.1045695 20.1045695,19 19,19 L5,19 C3.8954305,19 3,18.1045695 3,17 L3,6.97787787 C3,6.70173549 3.22385763,6.47787787 3.5,6.47787787 C3.60510559,6.47787787 3.70753836,6.51099993 3.79274528,6.57253826 L9.80428954,10.9142091 Z"
+                                                                              fill="#000000"></path>
+																	</svg>
+																</span>
+                                                <!--end::Svg Icon-->
+                                            </div>
+                                        </div>
+                                        <!--end::Timeline icon-->
+                                        <!--begin::Timeline content-->
+                                        <div class="timeline-content mb-10 mt-n1">
+                                            <!--begin::Timeline heading-->
+                                            <div class="pe-3 mb-5">
+                                                <!--begin::Title-->
+                                                <div class="fs-6 mb-2">
+                                                    یک جلسه جدید منتشر کرد
+                                                </div>
+                                                <!--end::Title-->
+                                                <!--begin::Description-->
+                                                <div class="d-flex align-items-center mt-1 fs-6">
+                                                    <!--begin::Info-->
+                                                    <div class="text-muted me-2 fs-7"> 4:23</div>
+                                                    <!--end::Info-->
+                                                    <!--begin::User-->
+                                                    <div class="symbol symbol-circle symbol-25px"
+                                                         data-bs-toggle="tooltip" data-bs-boundary="window"
+                                                         data-bs-placement="top" title=""
+                                                         data-bs-original-title="Nina Nilson">
+                                                        <img src="assets/images/150-2.jpg" alt="img">
+                                                    </div>
+                                                    <!--end::User-->
+                                                </div>
+                                                <!--end::Description-->
+                                            </div>
+                                            <!--end::Timeline heading-->
+                                            <!--begin::Timeline details-->
+                                            <div class="overflow-auto pb-5">
+                                                <!--begin::Record-->
+                                                <div class="d-flex align-items-center justify-content-between border border-dashed border-gray-300 rounded min-w-750px px-3 py-3 mb-5">
+                                                    <!--begin::Title-->
+                                                    <a href="#"
+                                                       class="fs-6 text-dark text-hover-primary w-100px min-w-100px">پلاگین
+                                                        ها</a>
+                                                    <!--end::Title-->
+                                                    <!--begin::Label-->
+                                                    <div class="min-w-175px pe-2">
+                                                        <span class="badge badge-light text-muted">استفاده از پکیج ها</span>
+                                                    </div>
+                                                    <!--end::Label-->
+
+                                                    <!--begin::Progress-->
+                                                    <div class="min-w-125px pe-2">
+                                                        <span class="badge badge-light-success">تایید شده</span>
+                                                    </div>
+                                                    <!--end::Progress-->
+                                                    <!--begin::Action-->
+                                                    <a href="#" class="btn btn-sm btn-light btn-active-light-primary">مشاهده</a>
+                                                    <!--end::Action-->
+                                                </div>
+                                                <!--end::Record-->
+                                            </div>
+                                            <!--end::Timeline details-->
+                                        </div>
+                                        <!--end::Timeline content-->
+                                    </div>
+                                    <!--end::Timeline item-->
+                                    <!--begin::Timeline item-->
+                                    <div class="timeline-item">
+                                        <!--begin::Timeline line-->
+                                        <div class="timeline-line w-40px"></div>
+                                        <!--end::Timeline line-->
+                                        <!--begin::Timeline icon-->
+                                        <div class="timeline-icon symbol symbol-circle symbol-40px">
+                                            <div class="symbol-label bg-light">
+                                                <!--begin::Svg Icon | path: icons/duotone/Communication/Write.svg-->
+                                                <span class="svg-icon svg-icon-2 svg-icon-gray-500">
+																	<svg xmlns="http://www.w3.org/2000/svg" width="24px"
+                                                                         height="24px" viewBox="0 0 24 24"
+                                                                         version="1.1">
+																		<path d="M11.6734943,8.3307728 L14.9993074,6.09979492 L14.1213255,5.22181303 C13.7308012,4.83128874 13.7308012,4.19812376 14.1213255,3.80759947 L15.535539,2.39338591 C15.9260633,2.00286161 16.5592283,2.00286161 16.9497526,2.39338591 L22.6066068,8.05024016 C22.9971311,8.44076445 22.9971311,9.07392943 22.6066068,9.46445372 L21.1923933,10.8786673 C20.801869,11.2691916 20.168704,11.2691916 19.7781797,10.8786673 L18.9002333,10.0007208 L16.6692373,13.3265608 C16.9264145,14.2523264 16.9984943,15.2320236 16.8664372,16.2092466 L16.4344698,19.4058049 C16.360509,19.9531149 15.8568695,20.3368403 15.3095595,20.2628795 C15.0925691,20.2335564 14.8912006,20.1338238 14.7363706,19.9789938 L5.02099894,10.2636221 C4.63047465,9.87309784 4.63047465,9.23993286 5.02099894,8.84940857 C5.17582897,8.69457854 5.37719743,8.59484594 5.59418783,8.56552292 L8.79074617,8.13355557 C9.76799113,8.00149544 10.7477104,8.0735815 11.6734943,8.3307728 Z"
+                                                                              fill="#000000"></path>
+																		<polygon fill="#000000" opacity="0.3"
+                                                                                 transform="translate(7.050253, 17.949747) rotate(-315.000000) translate(-7.050253, -17.949747)"
+                                                                                 points="5.55025253 13.9497475 5.55025253 19.6640332 7.05025253 21.9497475 8.55025253 19.6640332 8.55025253 13.9497475"></polygon>
+																	</svg>
+																</span>
+                                                <!--end::Svg Icon-->
+                                            </div>
+                                        </div>
+                                        <!--end::Timeline icon-->
+                                        <!--begin::Timeline content-->
+                                        <div class="timeline-content mb-10 mt-n1">
+                                            <!--begin::Timeline heading-->
+                                            <div class="pe-3 mb-5">
+                                                <!--begin::Title-->
+                                                <div class="fs-6 mb-2">یک مقاله جدید منتشر کرد</div>
+                                                <!--end::Title-->
+                                                <!--begin::Description-->
+                                                <div class="d-flex align-items-center mt-1 fs-6">
+                                                    <!--begin::Info-->
+                                                    <div class="text-muted me-2 fs-7"> 18:25</div>
+                                                    <!--end::Info-->
+                                                    <!--begin::User-->
+                                                    <div class="symbol symbol-circle symbol-25px"
+                                                         data-bs-toggle="tooltip" data-bs-boundary="window"
+                                                         data-bs-placement="top" title=""
+                                                         data-bs-original-title="Marcus Dotson">
+                                                        <img src="assets/images/150-2.jpg" alt="img">
+                                                    </div>
+                                                    <!--end::User-->
+                                                </div>
+                                                <!--end::Description-->
+                                            </div>
+                                            <!--end::Timeline heading-->
+                                            <!--begin::Timeline details-->
+                                            <!--begin::Timeline details-->
+                                            <div class="overflow-auto pb-5">
+                                                <!--begin::Record-->
+                                                <div class="d-flex align-items-center justify-content-between border border-dashed border-gray-300 rounded min-w-750px px-3 py-3 mb-5">
+                                                    <!--begin::Title-->
+                                                    <a href="#"
+                                                       class="fs-6 text-dark text-hover-primary min-w-100px">
+                                                        تفاوت react.js و vue.js
+                                                    </a>
+                                                    <!--end::Title-->
+                                                    <!--begin::Label-->
+                                                    <div class="min-w-175px pe-2">
+                                                        <span class="badge badge-light text-muted">وب سایت</span>
+                                                    </div>
+                                                    <!--end::Label-->
+
+                                                    <!--begin::Progress-->
+                                                    <div class="min-w-125px pe-2">
+                                                        <span class="badge badge-light-success">تایید شده</span>
+                                                    </div>
+                                                    <!--end::Progress-->
+                                                    <!--begin::Action-->
+                                                    <a href="#" class="btn btn-sm btn-light btn-active-light-primary">مشاهده</a>
+                                                    <!--end::Action-->
+                                                </div>
+                                                <!--end::Record-->
+                                            </div>
+                                            <!--end::Timeline details-->
+                                            <!--end::Timeline details-->
+                                        </div>
+                                        <!--end::Timeline content-->
+                                    </div>
+                                    <!--end::Timeline item-->
+                                    <!--begin::Timeline item-->
+                                    <div class="timeline-item">
+                                        <!--begin::Timeline line-->
+                                        <div class="timeline-line w-40px"></div>
+                                        <!--end::Timeline line-->
+                                        <!--begin::Timeline icon-->
+                                        <div class="timeline-icon symbol symbol-circle symbol-40px">
+                                            <div class="symbol-label bg-light">
+                                                <!--begin::Svg Icon | path: icons/duotone/Communication/Write.svg-->
+                                                <span class="svg-icon svg-icon-2 svg-icon-gray-500">
+																	<svg xmlns="http://www.w3.org/2000/svg" width="24px"
+                                                                         height="24px" viewBox="0 0 24 24"
+                                                                         version="1.1">
+																		<path d="M12.2674799,18.2323597 L12.0084872,5.45852451 C12.0004303,5.06114792 12.1504154,4.6768183 12.4255037,4.38993949 L15.0030167,1.70195304 L17.5910752,4.40093695 C17.8599071,4.6812911 18.0095067,5.05499603 18.0083938,5.44341307 L17.9718262,18.2062508 C17.9694575,19.0329966 17.2985816,19.701953 16.4718324,19.701953 L13.7671717,19.701953 C12.9505952,19.701953 12.2840328,19.0487684 12.2674799,18.2323597 Z"
+                                                                              fill="#000000" fill-rule="nonzero"
+                                                                              transform="translate(14.701953, 10.701953) rotate(-135.000000) translate(-14.701953, -10.701953)"></path>
+																		<path d="M12.9,2 C13.4522847,2 13.9,2.44771525 13.9,3 C13.9,3.55228475 13.4522847,4 12.9,4 L6,4 C4.8954305,4 4,4.8954305 4,6 L4,18 C4,19.1045695 4.8954305,20 6,20 L18,20 C19.1045695,20 20,19.1045695 20,18 L20,13 C20,12.4477153 20.4477153,12 21,12 C21.5522847,12 22,12.4477153 22,13 L22,18 C22,20.209139 20.209139,22 18,22 L6,22 C3.790861,22 2,20.209139 2,18 L2,6 C2,3.790861 3.790861,2 6,2 L12.9,2 Z"
+                                                                              fill="#000000" fill-rule="nonzero"
+                                                                              opacity="0.3"></path>
+																	</svg>
+																</span>
+                                                <!--end::Svg Icon-->
+                                            </div>
+                                        </div>
+                                        <!--end::Timeline icon-->
+                                        <!--begin::Timeline content-->
+                                        <div class="timeline-content mb-10 mt-n1">
+                                            <!--begin::Timeline heading-->
+                                            <div class="pe-3 mb-5">
+                                                <!--begin::Title-->
+                                                <div class="fs-6 mb-2">ثبت یک درخواست تسویه جدید</div>
+                                                <!--end::Title-->
+                                                <!--begin::Description-->
+                                                <div class="d-flex align-items-center mt-1 fs-6">
+                                                    <!--begin::Info-->
+                                                    <div class="text-muted me-2 fs-7">22:22</div>
+                                                    <!--end::Info-->
+                                                    <!--begin::User-->
+                                                    <div class="symbol symbol-circle symbol-25px"
+                                                         data-bs-toggle="tooltip" data-bs-boundary="window"
+                                                         data-bs-placement="top" title=""
+                                                         data-bs-original-title="Robert Rich">
+                                                        <img src="assets/images/150-11.jpg" alt="img">
+                                                    </div>
+                                                    <!--end::User-->
+                                                </div>
+                                                <!--end::Description-->
+                                            </div>
+                                            <!--end::Timeline heading-->
+                                            <!--begin::Timeline details-->
+                                            <div class="overflow-auto pb-5">
+                                                <!--begin::Notice-->
+                                                <div class="notice d-flex bg-light-primary rounded border-primary border border-dashed min-w-lg-600px flex-shrink-0 p-5">
+                                                    <!--begin::Icon-->
+                                                    <!--begin::Svg Icon | path: icons/duotone/Code/Git4.svg-->
+                                                    <span class="svg-icon svg-icon-2tx svg-icon-primary me-4">
+																		<svg xmlns="http://www.w3.org/2000/svg"
+                                                                             width="24px" height="24px"
+                                                                             viewBox="0 0 24 24" version="1.1">
+																			<path d="M6,7 C7.1045695,7 8,6.1045695 8,5 C8,3.8954305 7.1045695,3 6,3 C4.8954305,3 4,3.8954305 4,5 C4,6.1045695 4.8954305,7 6,7 Z M6,9 C3.790861,9 2,7.209139 2,5 C2,2.790861 3.790861,1 6,1 C8.209139,1 10,2.790861 10,5 C10,7.209139 8.209139,9 6,9 Z"
+                                                                                  fill="#000000"
+                                                                                  fill-rule="nonzero"></path>
+																			<path d="M7,11.4648712 L7,17 C7,18.1045695 7.8954305,19 9,19 L15,19 L15,21 L9,21 C6.790861,21 5,19.209139 5,17 L5,8 L5,7 L7,7 L7,8 C7,9.1045695 7.8954305,10 9,10 L15,10 L15,12 L9,12 C8.27142571,12 7.58834673,11.8052114 7,11.4648712 Z"
+                                                                                  fill="#000000" fill-rule="nonzero"
+                                                                                  opacity="0.3"></path>
+																			<path d="M18,22 C19.1045695,22 20,21.1045695 20,20 C20,18.8954305 19.1045695,18 18,18 C16.8954305,18 16,18.8954305 16,20 C16,21.1045695 16.8954305,22 18,22 Z M18,24 C15.790861,24 14,22.209139 14,20 C14,17.790861 15.790861,16 18,16 C20.209139,16 22,17.790861 22,20 C22,22.209139 20.209139,24 18,24 Z"
+                                                                                  fill="#000000"
+                                                                                  fill-rule="nonzero"></path>
+																			<path d="M18,13 C19.1045695,13 20,12.1045695 20,11 C20,9.8954305 19.1045695,9 18,9 C16.8954305,9 16,9.8954305 16,11 C16,12.1045695 16.8954305,13 18,13 Z M18,15 C15.790861,15 14,13.209139 14,11 C14,8.790861 15.790861,7 18,7 C20.209139,7 22,8.790861 22,11 C22,13.209139 20.209139,15 18,15 Z"
+                                                                                  fill="#000000"
+                                                                                  fill-rule="nonzero"></path>
+																		</svg>
+																	</span>
+                                                    <!--end::Svg Icon-->
+                                                    <!--end::Icon-->
+                                                    <!--begin::Wrapper-->
+                                                    <div class="d-flex flex-stack flex-grow-1 flex-wrap flex-md-nowrap">
+                                                        <!--begin::Content-->
+                                                        <div class="mb-3 mb-md-0">
+                                                            <h4 class="text-gray-800">
+                                                                درخواست تسویه
+                                                            </h4>
+                                                            <div class="fs-6 text-gray-600 pe-7">
+                                                                750,000 تومان
+                                                            </div>
+                                                        </div>
+                                                        <!--end::Content-->
+                                                        <!--begin::Action-->
+                                                        <a href="#"
+                                                           class="btn btn-primary px-6 align-self-center text-nowrap">تسویه</a>
+                                                        <!--end::Action-->
+                                                    </div>
+                                                    <!--end::Wrapper-->
+                                                </div>
+                                                <!--end::Notice-->
+                                            </div>
+                                            <!--end::Timeline details-->
+                                        </div>
+                                        <!--end::Timeline content-->
+                                    </div>
+                                    <!--end::Timeline item-->
+                                </div>
+                                <!--end::Timeline-->
+                            </div>
+                            <!--end::Tab panel-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--end::Main Content-->
+
+</div>
+
+<!--begin::Scripts-->
+<script src="assets/js/jquery-3.6.0.min.js"></script><!-- Jquery -->
+<script src="assets/js/app.bundle.min.js"></script><!-- App Js -->
+<script src="assets/vendor/select-ui/select-ui.min.js"></script><!-- select Plugin Js -->
+<script src="assets/bundles/c3.bundle.js"></script><!-- charts Plugin Js -->
+<script src="assets/vendor/sweetalert/sweetalert2.all.min.js"></script><!-- sweetalert Plugin Js -->
+<script src="assets/js/custom.js"></script><!-- Custom Js -->
+<!--end::Scripts-->
+</body>
+</html>
