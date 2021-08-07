@@ -1,7 +1,7 @@
 ### Hi there, I'm Hilson x hero - [hilsonxhero.com][website] 👋
 
 [![Website](https://img.shields.io/website?label=hilsonxhero.com&style=for-the-badge&url=https%3A%2F%2Fhilsonxhero.com)](https://hilsonxhero.com)
-[![Twitter Follow](https://img.shields.io/twitter/follow/hilson?color=1DA1F2&logo=instagram&style=for-the-badge)](https://instagram.com/hilsonxhero.me)
+[![Instagram](https://img.shields.io/twitter/follow/hilson?color=1DA1F2&logo=instagram&style=for-the-badge)](https://instagram.com/hilsonxhero.me)
 
 ## I'm a Developer!!
 
