@@ -1,17 +1,21 @@
-### Hi there, I'm Hilson x hero - [hilsonxhero.com][website] 👋
+### hero dashboard v1 - ⚡
+
 
 [![Website](https://img.shields.io/website?label=hilsonxhero.com&style=for-the-badge&url=https%3A%2F%2Fhilsonxhero.com)](https://hilsonxhero.com)
-[![Instagram](https://img.shields.io/twitter/follow/hilson?color=1DA1F2&logo=instagram&style=for-the-badge)](https://instagram.com/hilsonxhero.me)
+[![Instagram](https://img.shields.io/twitter/follow/hilson?color=1DA1F2&logo=instagram&style=for-the-badge)](https://instagram.com/hilso.me)
 
-## I'm a Developer!!
+### demo
+
+[<img align="left" alt="HTML5" width="100%" style="" src="https://www.hilsonxhero.com/uploads/portfolio-gallery/352848339.png" />][webdevplaylist]
 
 
-### Connect with me:
+### 🛠️ Changelog
 
-[<img align="left" alt="codeSTACKr.com" width="22px" style="margin:0 10px" src="https://raw.githubusercontent.com/iconic/open-iconic/master/svg/globe.svg" />][website]
-[<img align="left" alt="hilson | Instagram" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/instagram.svg" />][instagram]
+<!-- CHNAGE LOG:START -->
+- [update views ui](https://www.youtube.com/watch?v=KBSRZh8HQ4M)
 
-<br />
+<!-- CHNAGE LOG:END -->
+
 
 ### Languages and Tools:
 
